@@ -1,0 +1,281 @@
+
+\section{Description of Optical Imaging Data \& Generic Processing
+Steps: From Photon Counts to Neuronal Activity} 
+
+\label{app_oi} 
+
+
+VSDI is a recording technique for directly measuring the activity of large
+amounts of neuronal masses with a temporal resolution in the order of
+milliseconds. It combines relatively good temporal resolution with a
+satisfying spatial resolution. However as it is always the case, each
+recording, be it physiological or physical, has its own peculiarities due
+to the interaction of the recording system with the subject of the
+investigation. VSDI is not exempt of problems and needs careful
+preprocessing before any analysis. In the following, description of the
+data and conventional preprocessing techniques will be explained in detail.
+
+\subsection{Some Terminology}
+
+Introducing the following definitions is necessary in order to understand
+the terminology used in this Section. Due to the manner in which
+experiments are done, we have to distinguish between \textit{trials},
+\textit{trialblock} and \textit{block}. A \textit{trial} is the shortest
+data segment that is recorded. A \textit{trial block} is a set of trials
+where all possible conditions are recorded in a randomized fashion. In the
+experiments, we have 17 conditions. The data coming from the recordings of
+17 conditions compose a \textit{trialblock}. This is the unit of data in
+the hard disk because a given trialblock is stored as a unique file. The
+repetitive recording generating many trialblocks creates a \textit{block}.
+During a block, nothing in the recording hardware (such as gain control,
+aperture etc.) is modified and as a consequence a block is an ensemble of
+trialblocks where many trials are recorded in presumably constant
+conditions. However this situation is interrupted due to some necessity
+which forces the experimenter to change some parameters in the camera
+system. As a consequence a new block starts after parameter adjustments. 
+
+In summary, a trialblock refers to a set of trials
+where all the stimulus conditions are shown only once. A block refers to a
+group of trialblocks where the hardware parameters are kept constant. A new
+block starts as soon as a parameters are modified.   
+
+\subsection{Properties of Raw Data}
+
+Each trialblock can be conceptualized as a time-series organized in a 3
+dimensional matrix as (space,time,condition). The length of the time
+dimension depends on the specific sampling rate used during a given
+experiment. The presentation duration is always 2 seconds. An interval of
+time corresponding one tenth of the whole stimulus presentation duration
+corresponds to the pre-stimulus period.
+
+An example frame of the raw data, directly output from the camera, is shown
+in Fig. \ref{oi_app01}A (left panel). The color coded numbers are
+proportional to the number of photons received by the photosensitive
+elements of the camera facing to the cortical tissue depicted in the right
+panel. The uneven distribution of the luminance values is clearly visible
+as an inverted basin-like structure. Three artefactual lines in the raw
+data are notable. These lines are due to the known artefacts caused by the
+camera system used. Importantly we see that the cortical "picture" at this
+rather raw level is mainly dominated by the curvature of the cortex which
+causes a strong spatial inhomogeneity on the number of photons recorded.
+These artefacts and the spatial inhomogeneities will be washed out by the
+subsequent preprocessing steps discussed below.
+
+\begin{figure}[!h] 
+\includegraphics[width=\textwidth]{part_oi/figures/appendix_01.png}
+\caption[Raw Data Directly Output from the Camera.]{\textbf{Raw Data
+Directly Output from the Camera.} \textbf{(A)} One example of recorded
+frame is shown on the right panel. The color coded values are proportional
+to the number of photons received. On the right panel, the corresponding
+cortical tissue is shown. \textbf{(B)} The temporal evolution of the raw
+data. Please note that the change across pixels is much bigger than the
+change occurring across time. At this initial stage no trace of evoked
+activity is visible. \textbf{(C)} Histogram of the luminance levels, each
+line represents a trialblock. The color and thickness of the lines changes
+according to how late a given recording is done. \textit{Thick} and
+\textit{bright} lines indicate early recordings and \textit{black} and
+\textit{thin} lines indicates late (toward the end of the experiment)
+recordings. To better see the evaluation of the slow drift over the
+recording period refer to the next figure.} \label{oi_app01}\end{figure}
+
+In Fig. \ref{oi_app01}B, temporal evolution of each pixel's luminance is
+depicted (in units of recorded frames each lasting 5 ms). The data
+presented in Fig. \ref{oi_app01}A (left panel) occupies one of the columns
+in this panel. Importantly the deviations from the baseline due to the
+stimulus onset (which occurs at 20\textsuperscript{th} frame) are not
+visible. The reason for this is that the deviations between the DC
+components (average values) of different pixels are comparatively much
+bigger than the effect of the stimulus onset.
+ 
+In Fig. \ref{oi_app01}C, we see the distributions of these raw luminance
+values. Each line corresponds to a given trialblock. All the pixels which
+makes up a trialblock (therefore pooled over conditions, space and time)
+were used to create each single histogram. Here the brightness of the
+curves represents different trials. Brighter and thicker lines represent
+trials which are recorded earlier. The fact that late recordings within
+this experiment have more illumination is caused by the experimenter's
+adjustments counter-balancing the photo-oxidative degradation of dye
+signals. 
+
+
+Different statistics extracted from the dataset recorded during an
+experiment are shown in Fig. \ref{raw_ss}. In the y-axis, we see different
+trials recorded along the experiment ($\approx$35 trials). In the
+large-scale x-axis different statistics are represented: \textit{mean,
+range, variance, maximum, minimum, kurtosis, skewness}. These statistics
+are extracted for each condition separately by pooling all the data points
+together. Within each subplot, across the x-axis different stimulus
+conditions are shown (total of 17). The black thin line symbolically shows
+the starts and stops of different blocks. The intervention of the
+experimenter are clearly visible in the abrupt changes of these statistics.
+It is expected that an ideal preprocessing method cancels out these
+fluctuations which are dependent on experimenter's interventions. 
+
+%4
+\begin{figure}
+\centerline{
+\includegraphics[width=\textwidth]{part_oi/figures/appendix_02.png}}
+\caption[Fluctuations in the Basic Statistics Extracted from the Raw Data
+of a Given Experiment.]{\textbf{Fluctuations in the Basic Statistics
+Extracted from the Raw Data of a Given Experiment.} On the left-most panel,
+the average value of the recorded raw signal is shown for all conditions
+(x-axis) and trials (y-axis). Different panels represent different
+statistics extracted. The staircase black lines depict the block identity
+changes, each time a step occurs a new recording block starts.}
+\label{raw_ss} 
+\end{figure}
+
+
+\subsection{Frame-zero Correction by Division}
+
+
+Frame-zero correction is realized in order to remove differences in the DC
+values of different pixels. This results in the correction of spatial
+inhomogeneities. In order to do so, we artificially equalize the luminance
+values recorded during the prestimulus period. During this process, for
+each trial data, the average luminance during the pre-stimulus time is
+computed for each pixel and condition separately. This generates one scalar
+value \newpage for each pixel and condition. Following, all recorded samples
+belonging to a pixel and condition are normalized by this scalar. This
+forces the temporal average during the pre-stimulus period to be equal to 1
+for each of the pixels. This is called \textit{frame-zero} correction. 
+
+\subsection{Why Division?} 
+
+Even though it is consistent with the literature, it is not clear why
+division rather then a subtraction need to be the preferred method. In a
+scenario where the dynamic range of a given pixel is proportional to its
+prestimulus DC value, the divisive normalization would be preferable.
+However subtraction would be preferred if the gain of the activation is
+constant and therefore independent of the DC component. 
+
+This can be verified easily. Fig. \ref{why} shows for a given trial and for
+each pixel, the relationship between the DC component and its dynamic
+range. Here dynamic range of a given pixel is quantified as the standard
+deviation of its activity computed across the temporal dimension. This was
+done for two different stimulation conditions (grating condition (blue) and
+blank condition (red)). It is clearly visible that the modulation depth is
+to a good extent linearly related to the DC component of the pixels. This
+justifies the necessity for a divisive normalization procedure. 
+
+%5
+\begin{figure}[!h] \centerline{
+\includegraphics[width=\textwidth]{part_oi/figures/appendix_03.png}}
+\caption[Relationship between Prestimulus Average Luminance and Modulation
+Depth of a Pixel.]{\textbf{Relationship between Prestimulus Average
+Luminance and Modulation Depth of a Pixel.} Each point symbolizes two
+quantities extracted from a pixel's luminance: DC component during
+prestimulus period and modulation depth, which is the standard deviation of
+the activity during the stimulus presentation. \textit{Blue} and
+\textit{red} dots are from grating conditions and blank conditions,
+respectively. Different panels depicts the data of different experiments.
+The presented data originates from one single trial, however same linear
+relationship is observed for all other trials.}
+
+\label{why}
+
+\end{figure}
+
+The effect of the divisive frame-zero correction on the raw data is
+presented in Fig. \ref{f0}A (compare to Fig. \ref{oi_app01}B to the raw
+data). The frame-zero division has the effect of making the distributions
+of luminance values more Gaussian-like (compare histograms in Fig.
+\ref{f0}C and \ref{oi_app01}C). In these histograms all of the
+distributions are centered around a value close to 1. Although some drifts
+over the course of the experiment (a given gray level codes for a given
+trialblock) are present, there seems to be no general rule governing how do
+these distributions changes over the entire experimental session. 
+
+
+Importantly, the increase in the luminance level due to the stimulus onset
+is clearly visible in Fig. \ref{f0}A. Yet the most important variation in
+the data at this level is the heart-beat and respiration related noises
+(see Fig. \ref{f0}B), seen as oscillations spanning across all the recorded
+cortical space. The cat has approximately 4 hearth beats during the 2
+seconds of stimulus presentation. These artefacts are cleaned out by
+computing the \textit{fractional change}.
+
+%6
+\begin{figure}[!h]
+\includegraphics[width=\textwidth]{part_oi/figures/appendix_04.png}
+\caption[Effect of Frame-zero Correction.]{\textbf{Effect of Frame-zero
+Correction.} \textbf{(A)}Same data shown in Fig. \ref{raw_ss}B is presented
+after frame-zero correction. \textbf{(B)} The spatially averaged data is
+shown for all the trials recorded under 4 different conditions (panels).
+\textbf{(C)} Histogram of the luminance values after Frame-zero correction.
+Same representation as in Fig. \ref{raw_ss}C.} 
+
+\label{f0} 
+
+\end{figure}
+
+\subsection{Blank Correction (Fractional Change)}
+
+Our aim is to remove the heart-beat and respiration related artefacts from
+the recorded neuronal data. We assume that the neuronal and artefactual
+data adds up linearly and that we could obtain back the neuronal data by
+computing the difference between the two signals which are recorded in the
+presence and absence of the visual stimulation. To this end, we compute the
+\textit{fractional change} in order to get rid of the heart-beat related
+artefacts. This procedure is formally expressed in equation
+\ref{app_oi_eq1}.
+
+\begin{equation} \frac{Condition_i(x,t)-\overline{Blank(x,t)}}{\overline{Blank(x,t)}}=
+\frac{Condition_i(x,t)}{\overline{Blank(x,t)}}-1 \label{app_oi_eq1}\end{equation} 
+
+
+Fractional change is obtained by computing the effect of the stimulation
+with respect to \newpage the baseline activity and a further normalization. The
+baseline activity is obtained from the trials where no stimulation is
+presented. As in each of the trialblocks, we have 2 \nolinebreak such \newpage blank conditions,
+the average is taken over those before the subtraction (shown with a bar in
+equation \ref{app_oi_eq1}). The fact that all trials are recorded in
+synchrony with respect to the hearth beat and respiration cycle allows us
+to make the subtraction method. It should be noted that the fractional
+change operates in an element-wise fashion. The operation is carried out in
+corresponding spatial and temporal recorded samples. Therefore this
+normalization takes into account spatial changes in luminance over the
+cortical surface as well as temporal non-stationariness occurring over
+curse of the recording. 
+
+
+\begin{figure}[!h]
+\centerline{\includegraphics[width=\textwidth]{part_oi/figures/appendix_05.png}}
+\caption[Effect of Frame-zero and Fractional Change Operations on the
+Fluctuations.]{ \textbf{Effect of Frame-zero and Fractional Change
+Operations on the Fluctuations.} The evolution of different statistics
+following Frame-zero correction and fractional change computations. The
+same representation as in Fig. \ref{raw_ss}. Sharp changes in the values of
+statistics dependent on the block identity changes is to a good extent
+removed.} \label{f0_ss} \end{figure}
+
+However, it should be noted that there are a variety of choices for the
+definition of the baseline signal. One candidate would be the trialblock's
+own blank condition (this was the choice which is commonly used). In this
+scenario each trialblock's own blank recordings would be used for the
+fractional change computation. This would be the choice which is most noisy
+and temporarily localized. Another candidate would be the baseline computed
+using a given number of trials which are consecutively recorded. On the
+other extreme, the average blank computed across all the trials of an
+experiment could be also used. This would be the least noisy and
+temporarily located choice. These different baselines have all their pros
+and cons. While temporarily well-located blank recordings take into account
+the global fluctuations which may occur during the course of an experiment,
+they are also more prone to noise as the total number of trials to be based
+on is small. In this thesis, all the results reported, are computed using
+the conventional trialblock specific blanks.
+
+In \ref{f0_ss}, we see the evolution of different statistics across the
+trials (organized exactly as in \ref{raw_ss}) following the operation of
+frame-zero correction and fractional change. In the first column which
+shows the mean luminance, we see a vertical stripe-like pattern at the 3rd
+and 4th columns. These correspond to the grating conditions which causes
+very strong activity levels. The first two columns shows the statistics
+extracted from the data recorded during blank conditions, thus in the
+absence of any stimulation. Important to note is that the fluctuations in
+the values of extracted statistics that we observed in Fig. \ref{raw_ss}
+are to a good extent removed. Therefore these two preprocessing steps
+pro- \linebreak
+\newpage
+vides a good way of obtaining the specific activity levels caused by
+different stimulation conditions.

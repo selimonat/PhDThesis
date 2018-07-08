@@ -1,0 +1,56 @@
+\begin{thenomenclature} 
+
+ \nomgroup{A}
+
+  \item [{A17/18}]\begingroup Area 17/18\nomeqref {1.0}\nompageref{10}
+  \item [{CNS}]\begingroup Central Nervous System\nomeqref {5.0}
+		\nompageref{83}
+  \item [{CSF}]\begingroup Cerebrospinal Fluid\nomeqref {3.0}
+		\nompageref{29}
+  \item [{DA}]\begingroup Deceleration/Acceleration Notch\nomeqref {3.0}
+		\nompageref{45}
+  \item [{EEG}]\begingroup Electroencephalogram\nomeqref {1.0}
+		\nompageref{10}
+  \item [{ERP}]\begingroup Event Related Potential\nomeqref {4.0}
+		\nompageref{64}
+  \item [{FEF}]\begingroup Frontal Eye Field\nomeqref {5.8}
+		\nompageref{101}
+  \item [{fMRI}]\begingroup Functional Magnetic Resonance Imaging\nomeqref {4.0}
+		\nompageref{64}
+  \item [{FWHM}]\begingroup Full Width at Half Maximum\nomeqref {3.0}
+		\nompageref{53}
+  \item [{KL}]\begingroup Kullback-Leibler\nomeqref {5.6}
+		\nompageref{89}
+  \item [{LC}]\begingroup Luminance Contrast\nomeqref {3.0}
+		\nompageref{44}
+  \item [{LFP}]\begingroup Local Field Potentials\nomeqref {1.0}
+		\nompageref{10}
+  \item [{LGN}]\begingroup Lateral Geniculus Nucleus\nomeqref {1.0}
+		\nompageref{9}
+  \item [{LIP}]\begingroup Lateral Intraparietal Area\nomeqref {5.8}
+		\nompageref{101}
+  \item [{MD}]\begingroup Modulation Depth\nomeqref {3.0}
+		\nompageref{43}
+  \item [{MEG}]\begingroup Magnetic Encephalogram\nomeqref {4.0}
+		\nompageref{64}
+  \item [{nSC}]\begingroup non-Specific Activity\nomeqref {3.0}
+		\nompageref{41}
+  \item [{PCA}]\begingroup Principal Component Analysis\nomeqref {2.0}
+		\nompageref{16}
+  \item [{RF}]\begingroup Receptive Field\nomeqref {1.0}\nompageref{8}
+  \item [{RMS}]\begingroup Root Mean Square\nomeqref {3.0}
+		\nompageref{29}
+  \item [{ROI}]\begingroup Region of Interest\nomeqref {3.0}
+		\nompageref{31}
+  \item [{SC}]\begingroup Specific Activity\nomeqref {3.0}
+		\nompageref{41}
+  \item [{SVD}]\begingroup Singular Value Decomposition\nomeqref {3.0}
+		\nompageref{31}
+  \item [{V1}]\begingroup Primary Visual Cortex\nomeqref {1.0}
+		\nompageref{8}
+  \item [{V2}]\begingroup Secondary Visual Area\nomeqref {2.6}
+		\nompageref{23}
+  \item [{VSDI}]\begingroup Voltage-Sensitive Dye Imaging\nomeqref {1.0}
+		\nompageref{10}
+
+\end{thenomenclature}

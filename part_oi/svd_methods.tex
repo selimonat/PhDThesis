@@ -1,0 +1,36 @@
+Supplementary Methods
+
+Animal preparation. Animals were initially anesthetized with ketamine (15 mg kg-1 i.m.) 
+and xylazine (1 mg kg-1 i.m.), supplemented with atropine (0.05 mg kg-1 i.m.). After 
+tracheotomy, animals were artificially respirated, continuously anaesthetized with 0.8 - 1.5 % 
+isoflurane in a 1:1 mixture of O2/N2O, and fed intravenously. Heart rate, intratracheal 
+pressure, expired CO2, body temperature, and EEG were monitored during the entire 
+experiment. The skull was opened above area 18 and the dura was resected. Paralysis was 
+induced and maintained by Alloferin®. Eyes were covered with zero-power contact lenses as 
+protectives. External lenses were used to focus the eyes on the screen. To control for eye drift, 
+the position of the area centralis and receptive field positions were repeatedly measured. A 
+stainless steel chamber was mounted and the cortex was stained for 2-3 hours with voltage-
+sensitive dye (RH-1691), and unbound dye was subsequently washed out with artificial CSF.
+
+SVD analysis. Generally, SVD and related statistical procedures as Karhunen–Loéve 
+decomposition and principal component analysis, are helpful mathematical tools to separate 
+spatial patterns given by eigenvalues of the autocorrelation matrix from temporal modes in 
+complex physical systems28,29. Such procedures were also successfully applied in waveform 
+analysis of evoked neuronal potentials30 and spike response patterns31. A first attempt to 
+model optical imaging data by Karhunen–Loéve decomposition identified different modes 
+that resembled the layout of intrinsically recorded maps of ocular dominance, orientation, and 
+direction in primary visual cortex32. By exploiting the high spatial and temporal resolution of 
+VSDI frequency SVD analysis of recordings in the turtle visual brain led to discovery of 
+various forms of widespread traveling activity in different low frequency bands <5, 10, and 20 
+Hz33. Such large-scale timing differences of coherently propagating waves across the brain 
+were speculated to encode independent visual features by multiple phases of neural 
+activity33,34.
+
+SVD Analysis. Evoked signals were computed by averaging 25 to 35 stimulus repetitions. 
+We applied SVD to the evoked activity by using svd command of Matlab software 
+(Mathworks, Natick, MA, USA) after transforming each frame into a vector. SVD transforms 
+the evoked signal,  , into a weighted sum of  separable functions,  , such that 
+ ; where   represents the weight of the   component and N, the number 
+of frames. Singular values,  , increased linearly in logarithmic scale and significant 
+components were detected by identifying the first component which had a significantly 
+different increase in its weight with respect to the previous components.

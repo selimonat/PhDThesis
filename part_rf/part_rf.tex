@@ -1,0 +1,711 @@
+\section{Context} 
+
+One of the fundamental questions in current theoretical neuroscience is how
+to understand the rules governing RF properties. Neurons gather their
+functional properties by virtue of the specific connectivity pattern on the
+surface of their dendrites with the incoming axons. A neuronal subtype
+called \textit{simple cell}, found mainly in the thalamorecipient layers of
+early visual cortex, do have RFs with elongated ON and OFF subfields
+endowing them with the ability to detect edge-like structures
+\citep{hubel1959a}.  Compared to the circular RFs of retinal ganglion
+\citep{kuffler1953a,barlow1953a} and LGN \citep{hubel1962a} neurons, this
+is considered as an operation resulting in sensitivity to more elaborated
+features. The other major subtype, \textit{complex cells}, found mainly in
+the superficial layers \citep{martinez2005a}, are in addition to be
+sensitive to the orientation of the edge, they possess the intriguing
+property of being relatively invariant to its precise position within the
+RFs. Neuronal computations leading to invariance with respect to a given
+visual feature such as for example the position of the stimulus, are
+ubiquitous in the ventral visual system \citep{ito1995a}. For example
+neurons in the fusiform gyrus \citep{kanwisher1997a} are, beside being
+selective for faces, relatively invariant to the angle of view. From this
+perspective the complex cells we are investigating here occupy a
+well-defined study case for the understanding of learning and emergence of
+invariances. What are the computations realized in the dendrites of these
+neurons, and most importantly, can we derive compact mathematical
+descriptions of the learning principles for these operations? 
+
+The spatial properties of complex cell RFs are compatible with the
+hypothesis that cortical neurons form \textit{optimally stable}
+representations of time-varying real-world input
+\citep{hyvarinen2001a,einhauser2002a, kording2004a, wiskott2002a}. Within
+this scheme an artificial neuronal network is fed with natural input and
+the response of the neurons are optimized with respect to an objectively
+defined constraint. This optimization forces neuronal activities to change
+as slow as possible across time in response to a representative set of
+natural image sequences by virtue of the specific organization of the
+learnt connectivity weights. It has been shown that extracting optimally
+stable features from natural movie sequences in conjunction with a basic
+neuronal model leads to the emergence of complex cell-like RFs. In this
+work, we extend these studies to stereoscopic natural movies and show that
+by optimizing the stability of visual representations \textit{disparity
+selective} and \textit{translation invariant} cells emerge. Moreover, the
+response properties of these cells resemble in many aspects binocular
+neurons observed in visual cortex. The concept of optimally stable
+representations successfully describes important aspects of the binocular
+processing of neurons in primary visual cortex. This is compatible with the
+view that the synaptic organization in the upper cortical layers may be
+governed by a simple mathematical rule.
+
+
+\section{Introduction}
+
+
+
+Starting from early work on retinal electrophysiology \citep{kuffler1953a,
+barlow1953a}, continuing with the Nobel Prize winning discovery of Hubel
+and Wiesel \citep{hubel1962a} in primary visual cortex, a wealth of data
+has been made available on the properties of neuronal responses in the
+visual system up until now \citep{ringach2004b}. We know that neurons in
+V1, the cortical area closest to retina, respond to visual stimulation with
+specific characteristics. Edge-like structures with a specific orientation,
+spatial width and motion direction evoke vigorous activity. Our
+understanding of the processing in the mammalian visual system is largely
+based on such descriptive characterization of RF properties. 
+
+Given that real-world data is not labeled as edges, surfaces, textures
+etc., frameworks relying on unsupervised, feed-forward learning of such RF
+properties are much appreciated. Early on it has been emphasized that the
+encoding of sensory signals is related to the statistics of the input they
+are exposed to \citep{barlow1953a, barlow1961b, field1987a}. For example,
+natural images do contain redundancies e.g. a brightness value measured at
+a given position is correlated with a neighboring position due to the
+dominance of low spatial frequencies in the natural images. It has been
+estimated that natural images contain less than 60 \% of the entropy of
+images having the same power spectra \citep{chandler2007a}, meaning that
+strong redundancies exist. Therefore representations that are much more
+efficient than pixel representations of images would be possible. It has
+been proposed that sensory neurons may reduce redundancies in the input
+signals by efficiently representing the key building blocks of natural
+images \citep{barlow1961a}. 
+
+
+Recent theoretical studies provide insights into the relation of neuronal
+response properties and natural stimulus statistics especially with an
+emphasis on simple and complex cells. Simple cells, constituting a
+considerable number of neurons in V1, are optimally activated by stimuli
+with specific position, orientation and spatial frequency and it has been
+shown that this is compatible with an optimally sparse representation of
+natural visual stimuli \citep{field1987a, olshausen1996a}. Sparse coding
+implies highly selective representations of the input signals, and
+consequently, this results in neurons that are silent most of their
+lifetime in response to various external input but very active when their
+preferred stimulus is in their RF. \cite{olshausen1996a} created optimally
+sparse representations of a large set of natural images in a neuronal
+network simulation. They found that the features that these artificial
+neurons are selective for share many common characteristics (e.g. localized
+RFs, orientation and spatial frequency selectivity) with simple cells found
+in V1.
+
+
+Complex cells, the other dominant population in V1, are similar in many
+respects. However an important qualitative difference is that their
+responses are invariant with respect to the precise position of the
+stimulus \citep{hubel1962b}. The principle of temporal coherence (also
+referred as slow feature analysis) was originally proposed in the form of
+the trace rule \citep{foldiak1991a}. The main idea is based on the
+assumption that the relevant features in an environment change much slower
+(e.g.  orientation of an edge) than the noise component (e.g. neuronal
+noise). Therefore by learning to extract slow-changing features from a
+signal, one might expect to gather a set of useful features. It has been
+shown that the position invariance property of complex cells can be
+understood computationally within the framework of forming optimally stable
+representations of natural movies \citep{ hyvarinen2001a, einhauser2002a,
+wiskott2002a, kording2004a}. Optimizing the stability of representations
+has been also successfully used to predict the non-linearity of neurons
+\citep{kayser2003c}. Thus, important characteristics of simple and complex
+cells in V1 can be understood in terms of general properties of the
+representations formed. 
+
+
+All these studies have implicitly assumed a monocular visual system as the
+simulations were realized using natural movies or images recorded with only
+one camera. This discards therefore the binocular disparity dimension of
+the visual feature space. This is obviously an acceptable starting point
+but also a considerable simplification of the visual system of animals.
+Neurons in the primary visual cortex of monkeys and cats which have two
+frontally located eyes with a large binocular field, exhibit prominent
+binocular interactions \citep{pettigrew1968a, poggio1977a, anzai1999a,
+anzai1999b, deangelis2000a}. 
+
+In such animals, fixational eye movements bring a given point in a scene to
+the foveal region, which contains a high density of photoreceptor cells,
+and because of the convergence of the line of sight to the same external
+object, both left and right retinal images are in register with respect to
+each other on this retinal region. However, all other parts of the external
+world project at disparate positions on both retinae. This is reflected in
+the interesting differences in the spatial organization between left and
+right retinal counterparts in the RF of binocular neurons. It is thought
+that neurons that are selective for these differences are suitable for the
+detection of disparity \citep{ohzawa1990a} and underpin the basis of
+stereoscopic perception \citep{cumming2001a}.  These differences in the RF
+spatial organization take the form of shifts in the position of the RF
+center or small phase shifts in the precise location of ON and OFF
+subregions \citep{anzai1997a}.  Moreover it has been reported that shifts
+of the RFs are specially biased toward a horizontal direction, paralleling
+the statistical fact that the most of the disparities occur along the
+horizontal axis due to the alignment of both eyes \citep{cumming2002a}. On
+the other hand intriguing facts such as the presence of binocularly
+unbalanced neurons are also observed. Whereas some binocular neurons do
+have rather balanced input from both eyes, a non-negligible amount receives
+unbalanced input \citep{wiesel1974a,levay1985a}. However, the reason for
+this organization is not well-understood. On the psychophysical level, it
+is well known that the binocular disparity feature, even on its own, is a
+powerful cue to create a vivid sensation of depth, indicating the
+fundamental aspect of this feature detected by these neurons
+\citep{julesz1960a}. Therefore, a complete account of the RF properties
+must include the binocular dimension. Moreover, enriching the input by
+including this visual feature offers us the possibility to test different
+coding schemes on the basis of how well they reproduce classically observed
+binocular characteristics. 
+
+	
+In this Chapter, we record stereoscopic movies with a pair of micro-cameras
+carried by a freely moving cat in a natural environment and we train a
+neuronal network to make optimally stable representations of these
+stereoscopic natural movies. A comparison with the reported physiological
+data tests whether we can understand binocular neuronal RFs as optimal
+representations. 
+
+
+
+
+
+
+
+\section{Methods}
+
+\subsection{{Recording of Videos}}
+
+We used a custom made setup to record stereoscopic movies. Two
+micro-cameras (The Imaging Source, DFM-5303) were mounted on a crossbar
+with a distance of 4.8 cm (Fig. \ref{setup}) approximating the interocular
+position shift of the cat. The setup was calibrated to obtain a binocular
+parallax of zero at infinity. The gain control of both cameras was fixed to
+a constant value to avoid luminance differences. In order to synchronize
+two video streams we used a manually controlled shutter closing circuit
+that produced simultaneously black images in both cameras. The total weight
+of the setup was 71 g and was reversibly attached by two screws to an
+electrophysiological implant of a cat. During recording the cat was freely
+exploring an outdoor environment and didn't exhibit any observable behavior
+of dislike to these procedures. The movies were recorded in a forest near
+the university campus. Care has been taken to avoid any human
+constructions. Two mobile VCRs (Roadstar, VDR-6205K) carried by the
+experimenter have been used for the recording. The videotapes have been
+digitalized in Matlab (Mathworks, Natick, MA) by using a homemade script.
+With this setup we recorded 21 movies on different days. These correspond
+to a total of 27556 non-compressed 752\texttimes582 RGB movie frames at 25
+Hz. The whole procedure is in compliance with institutional national
+guidelines for experimental animal care. 
+
+\begin{SCfigure}
+\includegraphics[width=0.5\textwidth]{part_rf/figures/setup.png}
+\caption[Recording of Natural Movies.]{\textbf{Recording of Natural
+Movies.} Natural movies were recorded at a sampling rate of 25 Hz using a
+pair of analogue cameras reversibly mounted on the heads of cats. As the
+cameras are positioned to have 0 binocular parallax at infinity the only
+disparities presents in the input are crossed disparities. The cameras were
+positioned so that the Cameras and plastic support (weight ~70 g) were
+connected by cables to a pair of analogue video recorders carried by the
+experimenter. Cats did not exhibit any signs of discomfort because of the
+additional weight on their head, and freely explored their surroundings.
+See also the Fig. \ref{basket}D} \label{setup} \end{SCfigure} 
+
+\subsection{{Building the Stimulus Set}}
+
+The stimuli to train the network consisted of a sequence of grayscale image
+patches taken from the stereoscopic movies. Sequences were two frames long
+and corresponded to an interval of 40 ms due to the sampling rate of the
+micro-cameras. The patches were 40 by 40 pixels, roughly corresponding to 1
+degree of view angle. For computational reasons, we down sampled these
+patches by half. 
+
+
+A \textit{stereo-patch} was formed by extracting a pair of monocular
+patches from the same pixel coordinates of corresponding left and right
+images and by appending them horizontally. This created a rectangular patch
+of 20 by 40 pixels which was processed as a unit i.e. no explicit
+distinction on the eye identity (left or right) was provided. 
+
+The left and right parts of stereo-patches were subject to different
+selection criteria based on the similarity between each monocular halves.
+For the first set we did not apply any selection criteria, therefore the
+similarity between left and right patches reflected the intrinsic
+similarity present in binocular images. This set contained stereo-patches
+composed out of monocular halves that were extracted from randomly selected
+pixel coordinates (\textit{random condition}). The second set
+(\textit{confidence condition}) contained stereo-patches composed
+exclusively out of similar monocular patches. This was intended to mimic
+the role of the eye movements bringing the binocular images as much as
+possible into register. The strength of the similarity was evaluated by a
+confidence measure based on the correlation between left and right patches.
+We computed the correlation at different horizontal and vertical lags
+between both monocular patches which had their mean brightness values set
+to zero. We evaluated how much the peak value of this correlogram stands
+out by measuring its distance to the background correlation and chose only
+the most correlated pair of patches. Each set used for training the network
+contained 20000 stereo-patches for time points $t$ and $t+1$. 
+
+
+As each pixel represents one dimension in the input layer, we sought to
+reduce the dimensionality of the stimulus set in order to reduce the
+computational load. A principal component analysis (PCA)
+\nomenclature{PCA}{Principal Component Analysis} was used to reduce the
+dimensionality of the stimulus set. PCA was realized on the stereo-patches.
+The components ranging from 2 to 101 were used; first PCA component
+resembling the mean luminance was discarded. These were the weights of the
+PCA components rather than the raw pixel data which were used for the
+optimization process. The contributions of different principal components
+were whitened by dividing each eigenvector by its eigenvalue and thus each
+principal component had an equal contribution. This is thought to be
+similar to the operation of LGN \citep{dan1996a} which whitens the
+contribution of different frequency channels.
+
+\subsection{Structure of the Neuronal Network} 
+
+The model implements a two-layer feed-forward neuronal network (Fig.
+\ref{net}). The weights connecting the input layer to the subunits in the
+next layer are subject to modification by the optimization procedure. The
+activity of the neurons on the top layer is determined by the neuronal
+model which dictates the way how the activity of subunits converges to the
+output neuron. This neuronal model is not subject to modification
+throughout of the simulation and it is similar to the energy model of
+complex cells proposed by \citet{ohzawa1990a}. According to this model
+shown in equation (\ref{nm}), the activity of the output neuron $i$ at time
+$t$, $A_i(t)$ is determined by two full-rectifying binocular subunits
+
+
+\begin{equation} A_{i}(t) = \sqrt{(W^i_{1,j} \cdot I(t))^2 +
+(W^i_{2,j}\cdot I(t))^2 } \label{nm} \end{equation} 
+
+
+
+\begin{figure}[!htb] 
+\centerline{ \includegraphics{part_rf/figures/figure_00.png}} 
+
+\caption[The Structure of the Artificial Neuronal Network.]
+{\textbf{The structure of the Artificial Neuronal Network.} The nodes in the first layer
+(\textit{bottom} circles) represents input dimensions. The input is formed
+by temporal sequences of stereo-patches. Rather than using the raw pixel
+data as the input, the simulations were run on PCA components which covered
+90 \% of the variance present in the stereo-patches. This was done in order
+to lower computational load. Each single input dimension were connected to
+all subunits (\textit{blue} circles). These connections represented the RFs
+of the subunits. Subunits were organized as pairs and each unit within a
+pair were connected to a complex cell (\textit{red} circle on top). The
+activity of the complex cell was determined according to the equation in
+\ref{nm}. The activity of these neurons were the basis for the optimization
+process which modified the RFs.} 
+\label{net} 
+
+\end{figure} 
+
+
+where $A_{i}(t)$ represents the activity of neuron $i$ at time point $t$;
+$W^i_1$ and $W^i_2$ represent the RF of the subunit $1$ and $2$; $I(t)$
+represents a stereo-patch at time $t$. As specified above, no explicit
+differentiation of the left and right eyes were defined therefore the
+weight matrix defined by $W$ represents the RF of both eyes. Due to the
+scalar product preceding the square operation depicted in the equation
+above, the left and right images interacts linearly for the activation of a
+given subunit. Thus our network is in accord with the classical energy
+model \citet{ohzawa1990a}. We simulated 100 neurons each with two
+subunits.
+	
+	
+\subsection{The Goal Function} 
+
+The activity of the neurons in on the top layer are optimized with respect
+to an objective function by gradient descent. The goal function is composed
+of two terms: 
+
+\begin{equation} \Psi_{total} = 	\Psi_{stable} + \Psi_{decorrelation}
+\label{objfun} \end{equation}
+
+The first term $\Psi_{stable}$ is the \textit{stability criterion} and
+defined in equation \ref{obj_stab}.
+
+
+\begin{equation}  \Psi_{stable} = -\sum_{i}
+\frac{<(A_{i,t}-A_{i,t+\delta})^2>_{stimuli}}{\sigma_{A_{i,t}}\sigma_{A_{i,t+\delta}}}
+\label{obj_stab}
+\end{equation}
+
+The top term is the mean squared derivative of activities with respect to
+time over all stimuli. This terms is minimized if the activity levels are
+more stable across time and thus do not change. The brackets symbolize the
+average over stimuli. $\delta$ is set to 40 ms and equal to the time
+interval between two frames during recording. The trivial solution for this
+optimization problem is a completely insensitive black RF for both
+subunits. This would result in a neuron with a constant activity of zero
+i.e. maximally stable. In order to exclude this trivial solution, we scale
+the nominator by the total variance in the denominator where $\sigma$
+represents the standard deviation of activity levels of a given neuron at a
+given time point computed across all stimuli. The resulting expression
+takes large negative values and thus punishes fast changes. Therefore the
+optimization is the result of two opposing forces, while the neurons are
+forced to be as stable as possible across short time scales, they achieve
+this by being as variable as possible in the long time scales.
+	 
+Because the stability criterion evaluates individual neurons independently,
+the optimal solution is identical for all simulated neurons. It is
+customary to introduce a second, \textit{decorrelation term} to avoid such
+degeneracy.
+
+
+\begin{equation}  \Psi_{decorrelation} =
+-\frac{1}{N-1}\sum_{i} \sum_{i \not= j} \sigma_{i,j}^2 
+\label{obj_decor}
+\end{equation}
+
+The decorrelation term shown in equation \ref{obj_decor} forces different
+neurons to be selective for different features by punishing correlations
+among neurons. $\sigma_{i,j}$ corresponds to the covariance between neurons
+$i$ and $j$. $N$ denotes the total number of neurons. This results in an
+optimal coverage of the energy landscape at the expense of the stability of
+individual neuron activity. The overall operation accomplished by the
+network is to extract the slowest features from a given stimuli set thus
+achieving a learning supervised by the temporal structure of the stimuli. 
+
+\subsection{Analysis of Receptive Fields}
+	 
+
+After 800 iterations, consecutive changes of the objective function were
+smaller than $10^{-5}$ and the optimization converged. To each monocular
+RF, a two dimensional Gabor function was fitted. The fit is realized by
+using the \textit{lsqcurvefit} function of Matlab (Mathworks, Natick, MA).
+All the fits are graphically checked to ensure that the algorithm did not
+get caught in a local minima. To precisely compute the phase shift between
+left and right RFs, we used gratings with optimum orientation and spatial
+frequency at all possible phase shifts and found the phase shift between
+left and right monocular RFs. 
+
+
+In order to quantify the translation invariance of the complex neurons, the
+AC/DC ratio \citep{dean1983a} was computed by translating the optimal
+grating stimulus on the neuron's subunits and computing the activity
+according to the neuronal model. Based on these activities the ratio in
+equation \ref{acdc} was computed and assigned to the neuron's AC/DC ratio. 
+
+\begin{equation} AC/DC_i =
+\frac{\max(A_i)-\min(A_i)}{\textrm{mean}(A_i)} \label{acdc} \end{equation}
+	 		 
+Finally, to compute the binocular dominance index (BDI) the ratio in
+equation \ref{bdi} was calculated for each neuron. This value deviates from
+0 if one of the eyes has a dominant contribution to the neurons activity
+level.
+
+\begin{equation}  BDI_i =
+\log(\frac{\max(A_{i}^{L})}{\max(A_{i}^{R})}) 
+\label{bdi}
+\end{equation}
+
+
+\section{Results}
+
+We investigate optimally stable representations of the stereoscopic natural
+stimuli by training a neuronal network. A representative set of the
+optimally stable RFs are shown in Fig. \ref{RF}. For each of the 6
+optimally stable neurons presented in Fig. \ref{RF}, their binocular subunits
+are presented (left and right columns). The binocular RFs contain ON and
+OFF regions similar to cortical neurons' RFs. In the following a detailed
+description and related statistics concerning the selectivities of the
+optimally stable neurons will be explained for different stimuli
+conditions. Few non-converged RFs (3 from the \textit{confidence} condition
+and 8 from the \textit{random} condition) were not included in the
+analysis.
+
+
+
+{\subsection{{Orientation and Spatial Frequency Selectivity}}
+ 
+The RFs of subunits are selective for a given orientation and spatial
+frequency and they resemble to Gabor functions (Fig. \ref{RF}). Although in
+these examples the orientation and the spatial frequency selectivity of
+different neurons vary a lot, regions pertaining to left and right eye, and
+first and second subunits of a given neuron are always similar. There is a
+high correlation between left and right eye orientation selectivity of all
+subunits ($ r = 0.94$ for confidence condition and $r = 0.96$ for random
+condition). The correlation between same eye RF of different subunits for a
+given neuron was 0.98 and 0.97 for confidence and random stimuli conditions
+respectively. Concerning the spatial frequency, the correlation
+coefficients between left and right RF were 0.99 and 0.98 for confidence
+and random conditions respectively. Similar correlation exists between the
+same eyes of different subunits. This indicates a tight coupling of
+feature selectivity of left and right eyes irrespective of the stimuli set
+for which the neurons where trained. 
+
+\begin{SCfigure}[50][!htb]
+\includegraphics{part_rf/figures/figure_01.png}
+\caption[A Selection of RFs Representing Optimally Stable Representations
+of Stereoscopic Natural Movies.]{\textbf{A Selection of RFs Representing
+Optimally Stable Representations of Stereoscopic Natural Movies.} The
+binocular RFs of 6 neurons are presented in each row. Each cells is given
+an index number to specify its location in the next Fig.. Receptive fields
+of subunits are selective for a given orientation and spatial frequency. A
+given pair of subunits as well as different eyes of a given subunit exhibit
+similar preferences. Left and right RFs of subunits of \textit{Cell 1}
+encode disparities with a shift in the phase of their monocular RFs. On the
+other side, the \textit{cell 3} encode disparities by positional shifts of
+the RFs. \textit{Cells 2}, \textit{4} and \textit{6} are binocularly
+unbalanced. These occur mostly when the cells are trained with less
+correlated binocular input (\textit{random} condition). Another point worth
+to mention is that cells seems to be selective for horizontal disparities
+independent of the orientation selectivity of the cell (see \textit{cell 3}
+and \textit{6}).} \label{RF} \end{SCfigure} 
+
+The distribution of orientation selectivity over the whole population of
+neurons has a strong anisotropy towards horizontal and vertical
+orientations (Fig. \ref{hist}, top row, left panel). Analyzing the
+distributions of orientations inside patches of 40 by 40 pixels in our
+natural movie database, we found that the distribution of orientations has
+a similar distribution to the RF selectivities trained in the confidence
+condition (data not shown). Concerning the spatial frequency tuning
+(Fig.\ref{hist}, top row center panel) of all neurons, the random condition
+(gray lines) gives rise to many low frequency selective neurons while in
+the confidence (black lines) condition neurons cover more evenly the
+frequency space and extent to higher frequencies. Overall neurons trained
+by both stimuli sets seem to cover the stimulus space evenly, although this
+is more prominent in the confidence condition. 
+
+
+\begin{figure}[!htb] 
+\centerline{
+\includegraphics[width=\textwidth]{part_rf/figures/figure_02.png}}
+\caption[Feature Selectivity of the Simulated Complex Cell
+Population.]{\textbf{Feature Selectivity of the Simulated Complex Cell
+Population.} The results of both random (\textit{gray} lines and empty
+dots) and confidence conditions (\textit{black} lines and dots) are
+presented as histograms. The numbered arrowheads refer to the indices of
+neurons depicted in Fig. \ref{RF}.} \label{hist} \end{figure} 
+
+
+\subsection{{Disparity Encoding}}
+ 
+Next we investigate the coding of disparity information. In the disparity
+energy model \citep{ohzawa1990a}, a complex cell can be selective to a
+given disparity by either shifts in its phase or central position of its
+left and right RF eye. Both types of mechanisms are thought to be involved
+in the encoding of binocular disparity in the visual system
+\citep{anzai1997a,deangelis2000a}. 
+ 
+\textit{Neurons 1} and \textit{5} in Fig. \ref{RF} are example cells where
+the phase shift between left and right RFs of subunits can easily be
+distinguished. These cells code for the binocular disparity by shifting the
+phase of their ON and OFF subregions rather than shifting globally their
+position. The correlation of phase shifts between subunits was 0.98 and
+0.96 for confidence and random conditions respectively. This indicates that
+different subunits of a neuron have very similar phase shifts. The
+histogram (Fig. \ref{hist}, bottom row left panel) shows that at the
+population level the subunits cover the phase space mostly between 0 and
+$\pi$ which corresponds to the crossed disparities present in the stimuli.
+
+In addition to encoding disparity by phase shifts, neurons have also
+horizontal position shifts which make them suitable to encode disparity by
+position shifts. The \textit{neurons 3} and \textit{6} of Fig. \ref{RF}
+are exemplar neurons where the positional shifts are clearly apparent. This
+can be quantified by analyzing the difference between the centers of RFs of
+left and right eyes. The center of a RF corresponds to the center of the
+Gaussian envelope obtained after Gabor fitting process. In Fig. \ref{hist}
+(bottom row, right panel), the horizontal position shift between left and
+right RF of two subunits for a given neuron are plotted against each other
+(black dots) for the whole population of neurons. It can be seen that
+position shifts cover a large spectrum of disparities and that the amount
+of shifts are correlated between each subunits meaning that a given complex
+cell receiving inputs from a pair of subunits receives similar information
+with respect to the disparity (r = 0.5 and 0.43 for random and confidence
+condition respectively). This shows that, in addition to phase shift
+encoding, learnt RFs use also positional offsets to encode disparity as do
+the RFs observed in physiological experiments. 
+	 
+It has also been reported that neurons in the primate visual cortex, are
+predominantly selective for horizontal disparities irrespective of the
+orientation selectivity of the neuron \cite{cumming2002a}. The same
+tendency in the optimized neurons can be observed in Fig. \ref{RF} (e.g.
+\textit{neurons 3} and \textit{6}). This shows that the observed cortical
+specialization for horizontal disparities can be explained by the
+statistical structure of the binocular visual information in a feed-forward
+manner.
+
+\subsection{{Translation Invariance}}
+
+
+AC/DC ratio quantifies how well a neuron is translation
+invariant and low values are obtained if neurons exhibit position
+invariance. The distribution of AC/DC ratios is depicted in Fig.
+\ref{hist} (bottom row, middle panel). Most of the values being very close
+to zero, this shows that neurons are position invariant with respect to the
+precise localization of their optimal stimuli. The random condition gives
+generates slightly more neurons having high AC/DC ratios compared to
+confidence condition. However here also most of the neurons are translation
+invariant. Taken together with the results presented above, this shows that
+the optimally stable neurons exhibit, in addition to be selective for a
+given orientation, spatial frequency and binocular disparity, the property
+of being invariant to the precise position. 
+	 
+\subsection{Binocular Dominance}
+	 
+An interesting result is the differences in binocular dominance
+distribution of RFs trained with different stimulus conditions (Fig.
+\ref{hist}, top row, right panel). \textit{Neurons 4} and \textit{6} in the
+Fig. \ref{RF} are typical binocularly unbalanced cells. These unbalanced
+RFs were more numerous in the random stimulus condition. This is reflected
+in a wider distribution of binocular dominance values in Fig.  \ref{hist}).
+This suggests that training with a stimuli where the correlation between
+left and right monocular images is low, favors the dominance of one eye
+over the other. We verified this by creating a new set of stimuli where the
+left and right parts were chosen to be always uncorrelated. This resulted
+in a complete dominance of an eye over the other in every simulated neuron
+(data not shown). Diminishing or completely cancelling the contribution of
+one eye in the face of uncorrelated input seems to be the solution for
+increasing the stability of the neurons.
+
+
+\section{Discussion}
+		
+
+
+\subsection{Why Do Receptive Fields Have the Structure They Have?}
+
+Giving a formal account of the RF structure is one of the most important
+preoccupations in theoretical neuroscience. While physiologists describe
+and detect the properties of RFs, theoretical studies attempt to give an
+account in term of input statistics and some well-defined formal
+computational constraints such as stability or sparseness. The hypothesis
+that the process governing RF organization can be well described by an
+optimization process has received support by experimental and theoretical
+work \citep{ olshausen1996a,wiskott2002a, hurri2003a, kording2004a}. Much
+of this work concentrated on the selectivity of simple and complex cells in
+the primary visual cortex with respect to orientation and spatial
+frequency.  However, it is well known that neurons in primary visual cortex
+are selective to many more features including color, and disparity. The
+relation between selectivity of neurons for these features and the input
+statistics is being investigated only recently \citep{caywood2004a,
+einhauser2003a, hoyer2000a, wyss2006a}. Here in the same direction, we
+argue that disparity tuning of complex cells can be understood based on the
+same principles.
+
+
+
+We show that the binocular disparity feature can be extracted by forming
+optimally stable representations of stereoscopic natural movies.  Most
+importantly, the stable representations are in good agreement with the
+properties of disparity selective simple and complex cells recorded from
+the cortex \citep{anzai1999a,anzai1999b}. We have shown that neurons encode
+disparities both by binocular phase shift and position shifts similar to
+the observations noted in the physiological literature \citep{anzai1997a}.
+Both strategies seem to be the natural outcome of extracting stable
+features of natural stereoscopic movies. Furthermore, the binocular
+disparity selectivity seems to be more specialized for horizontal
+disparities independent of the orientation selectivity of the neurons
+\citep{cumming2002a} although a more detailed analysis is needed to
+quantify this. Additionally the binocularly unbalanced RFs, described in
+the early physiology literature \citep{hubel1962b} is shown to emerge from
+the convergence of uncorrelated input from both eyes. In summary,
+constraining artificial neurons to be as stable as possible in response to
+a stream of appropriate input reproduces many aspects of binocular
+processing that are well known to physiologists.
+
+
+Studies investigating unsupervised learning of disparity selective neurons
+are relatively recent. This is probably because it is technically difficult
+to record such images and movies. On the other hand, disparity feature
+offers another dimension in which the investigators can evaluate the
+similarities of the artificial and biological RFs and evaluate general
+mathematical principles of synaptic learning leading to the observed RF
+structures.  \cite{hoyer2000a} successfully applied a similar approach to
+stereoscopic images by using independent component analysis. They obtained
+RFs similar to simple cells resembling in many aspect physiological RF
+although they did not make a detailed comparison to the physiological RFs.
+
+		 
+In the visual cortex of a variety of animals, sophisticated binocular
+interactions are described. For example, this includes neurons selective
+for a given slant of the visual stimulus or having selectivity for relative
+disparity emerging in V2 \nomenclature{V2}{Secondary Visual Area} of
+monkeys \citep{thomas2002a}. From a theoretical point of view, it is
+fundamental to know whether the same goal function, when iterated several
+times, would give rise to RFs comparable to those found in visual areas
+located hierarchically higher.
+				 
+
+As a cell model, we used a classical disparity energy model. Therefore, in
+each subunit the weighted inputs by left and right eye are summed before
+the non-linearity is applied. This model has already been used to describe
+the disparity selectivity of cortical neurons \citep{ohzawa1990a}. But it
+is also known for its limitations e.g. its inability to capture
+combinations of inhibitory and excitatory effects from left and right RFs
+\citep{read2002a}. This choice limits the faithfulness of describing known
+physiological data. Nevertheless, we considered it more important at the
+present stage to use the identical type of neuronal model as in previous
+studies by others and our own group. This decision makes the integration of
+different feature selectivity, e.g. color \citep{einhauser2003a}
+straightforward. The alternative, to use a different neuronal model to
+understand disparity, and to worry over other features later, is of course
+also possible. Thus, we consider the present study as one of two equally
+valid approaches to a description of multiple feature selectivity using
+detailed neuronal models. 
+		 
+			
+
+\subsection{How Could Stable Features Be Extracted by Neurons?}
+
+
+How could stable visual features might be extracted by neurons? A set of
+experiments by \cite{fregnac1999b} shows that artificially increasing the
+covariance between the afferent input and postsynaptic activity by
+injecting intracellular currents is sufficient to induce long-lasting
+modifications in the visual responses of neurons. This confirms the
+possibility for Hebbian-like learning processes in the early visual cortex.
+It is possible to evaluate these results from the point of view of a given
+visual feature's temporal stability: the more a feature in the stimulus
+space is stable over time, the more the postsynaptic neuron representing
+this feature will tend to be consistently activated by the presynaptic
+cell.  This will fulfill the requirements of an Hebbian learning and
+consequently this feature will be learnt by the network. At the cellular
+level, back-propagating action potentials \citep{larkum1999a} are a natural
+candidate for generating a local learning signal \citep{kording2001a}.
+Recently \cite{sprekeler2007a} provides a detailed account on how stability
+can be extracted in a biologically plausible manner using the spike timing
+dependent plasticity rule.
+
+		 
+\subsection{Relation to Sparseness}
+
+
+In their milestone report \citep{olshausen1996a},
+\citeauthor*{olshausen1996a} showed that artificial neurons representing
+natural images in an optimally sparse way, have RF structures similar to
+the ones recorded during electrophysiological experiments. Two constraints
+were imposed during the training of the neuronal network. The first
+constraint required the distribution of neuronal activities to be as sparse
+as possible. This was obtained by imposing a non-Gaussian activity
+distribution with a strong peak and heavy tails. This forced neurons to be
+as selective as possible in their responses by having zero or very little
+response to most of the natural images and strong responses to only a small
+subset thereof. Worth noting is that the stability criterion does not
+impose any distribution on the resulting activity levels.
+
+The second driving force of the optimization \citet{olshausen1996a} used
+constrained the neuronal population to convey as much information as
+possible regarding the stimulus so as to minimize the reconstruction error
+of the stimulus. However, this latter constraint cannot easily be justified
+on biological grounds, simply because neurons in the visual cortex that are
+processing incoming signals do not "know" anything about what is to be
+represented.  They are simply local agents blind to the global aspects of
+the incoming signals. In our simulations we did not need to provide any
+explicit knowledge on what has to be represented. This was motivated from
+the fact that there is \textit{a priori} no necessity from the neuronal
+perspective to represent an image.
+
+Another major difference between the sparseness or stability criterion as
+goal functions concerns the nature of the sensory input. Whereas
+sparseness, as it is generally implemented, operates on static images,
+extraction of stable features is tightly related to the bodily motion of
+the animal, which is in turn responsible for the temporal scale of the
+changes in the retinal input. Therefore the development of RFs under
+stability criterion is tightly related to the specific action repertoire of
+a given animal. It is tempting to speculate that animals of different types
+may use the same synaptic learning principle in order to extract features
+from the environment that are relevant for their idiosyncratic
+sensory-motor action. 

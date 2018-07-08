@@ -1,0 +1,195 @@
+\epigraphhead{
+\epigraph{So happiness is not made by a chemical. That would be the same as
+treating a violin sonata as nothing but rubbing horse hair on strings of
+cat gut in order to make a wooden box resonate. Violin makers have to know
+their materials to make one, and physicians have to know about the brain
+chemicals in order to treat patients, when the chemistry of brains has gone
+wrong, but they can't give us a pill to make us happy.} {Walter Freeman}
+}
+\undodrop
+
+The world let itself to living organisms to be experienced in multitude of
+ways. This is the rational behind the wise sentence stating that the world
+is infinitely complex. Indeed this claim is justified by the extraordinary
+diversity of different members of the animal kingdom. Example... On a
+background of an infinitely complex ecological tissue, members of animal
+kingdom seems to be distributed, each being sensitive to different aspects
+of the world we are all inhabiting. What is the origin of this diversity?
+More precisely what determines a sensory system to be sensitive to a given
+set of aspects of the environment and ignore to a good extent others? 
+
+
+One answer, which is certainly the most popular one, would be that these
+sensitivities result from the clockworks of evolution shaping different
+sensory organs and epithelia to be adapted to different aspects of the
+world, and not to the others by means of genetical and/or epigenetical
+mechanisms. According to this view, sensory organs would have been evolved
+toward their current state in order to process the input signals they are
+sensitive to with higher reliability in such a way to increase the fitness
+of the organism. Fly detector neurons found in the frog's visual
+cortex serves as the milestone example illustrating this example. [How
+different these fly neurons from center surround LGN responses]
+
+
+This answer has certainly some truth in it. Adaptation as a tuning of
+biological process has already been indeed shown to occur at various
+organisms. [Examples] Yet conceiving adaptatif phenomena to be the sole explanatory
+factor of the animal kingdom diversity and more specifically for sensory
+adaptation occupies a debatable point.
+
+
+The problem of this point of view is that it presupposes that the
+environment is accessible to the organisms before the organisms are
+sensitive to it. The problem summarizes into the popular chicken-egg
+problem: which one came first; the sensory organ or the environment? Did
+the sensory organ evolved within a given direction to process an attribute
+of the external world which he had no access before hand? Let's illustrate
+this view with an excellent passage of The Embodied Mind: 
+ 
+ 
+ \begin{quote} 
+ 
+ It is well known that honey bees are trichromats whose spectral
+ sensitivity is shifted toward the ultraviolet. It is also well known that
+ flowers have contrasting reflectance patterns in ultraviolet light.
+ Consider now our "chicken-and-egg" question [...] :. Which came first, the
+ world (ultraviolet reflectance) or the image (ultraviolet sensitive
+ vision)?  Most of us would probably answer with little hesitation, The
+ world (ultraviolet reflectance). It is therefore interesting to observe
+ that the colors of flowers appear to have \textit{coevolved} with the
+ ultraviolet sensitive, trichromatic vision of bees.
+
+Why should such coevolution occur? One the one hand, flowers attract
+pollinetors by their food content and so must be both conspicuous and yet
+different from flowers of the other species. On the other hand, bees gather
+food from flowers and so need to recognize flowers from distance. These two
+broad and reciprocal constraints appear to have shaped a history of
+coupling in which plant features and the sensorimotr capacities of bees
+coevolved. It is this coupling, then, that is responsible  for both the
+ultraviolet vision of bees and the ultraviolet reflectance patterns of
+flowers. Such coevolution therefore provides an excellent exaxmple of how
+environmental regularities are not pregiven but are rather enacted or
+brought forth by a history of coupling."
+
+ \end{quote}
+
+
+This strong example emphasizes an important concept: structural
+coupling. In this example, bees and flowers are two
+components of a larger system. These two components by the virtue of their coupling
+codetermine the fate of each other. In this paradigm, we needed not a
+single time the idea of representation of external world by an agent. 
+
+This view actually constitutes the orthodox neo-darwinist point of view.
+However, I am not going to delve into details of the biological evolution as
+this is not our main topic here. However biological evolution seems to be
+an excellent tremplen to introduce to the very same problem we have in Cognitive
+Sciences. Interestingly it translates one to one into Cognitive Sciences and there
+also constitutes the major paradigm which is so widely accepted that it is
+not easily possible to question its fondements.
+
+
+Let's for a moment go back to the problem of the adaptationist
+approach. It seemed to be a very plausible hypothesis to say that the
+sensorial properties of an animal results from an adaptational process to
+the external worlds properties.
+
+
+Actually it is hard to dissociate this question of sensory diversity from
+the animals' other attributes. The way that a given animal is designed, it
+makes perfect sense that the animal is equipped with a given set of
+sensory preferences. The obvious relationship of the body shape and the
+potentials it generates and the sensory organs that an animal has, hints
+that the problem of sensory diversity is not a simple problem which could be
+explained by an adaptationist view. One should recognize the primacy of
+animals being animated beings. As a fact of definition, animals are
+animated things, the capacity of self motion being the unshared trait of
+all animals. Importantly the nervous systems seem to be an invention of
+animal kingdom, that is to say that the connection of sensation and action
+is created via the nervous tissue. It may seem to be trivial to say this so
+but there is no animal without a nervous system and thus it seems that the nervous systems are a necessary component
+of beings able to self locomote.  
+
+Strikingly, in our account on the last paragraph, this defining property of animals has not been used when we
+tryied to explain the adaptation. We simply focused on the sensation and
+created an explanatory framework within which we contented by an apparant
+fit of sensory selectivities with the environment and suggested that the
+sensory organes evolved to adapt to the incoming signals.
+
+
+But what is an incoming signal? This question must certainly depends again
+on the animals body, its locomotion, its speed, body shape. And here we are to accept
+the fact that what reaches central sensory neurons depends on how motor
+neurons do make use of the very specific body, and this in turn depends on
+the very shape of the body. Therefore it is
+increasingly harder to defend the position of a pregiven world that is
+represented within by the organism without taking into the shape and design
+of the animal. The shape and design of the animal specifies the sensory
+motor space of the animal and these are the aspects which an embodied
+science of mind can not disregard.
+
+
+We should recognize that simple explanation of sensory process as
+adaptation for a better representation of the external world shows only the half of the
+story and ignores the complexity which is may be most relevant or at least
+important.  Such a view reduces the animal to an disembodied agent and
+consequently to something which is not much different than a computer
+program. In such a view the animal is simply expected to receive some
+signals from the world that he has full access from the start on, process
+them and possibly combine them with its interior states and generate a
+behaviour.
+
+
+The counter part of this view in Cognitive Science. Representationism (or
+cognitivism). :
+
+
+
+How does it translate into visual neuroscience, science of
+perception. Would be interesting to talk about the bayesian approach of the
+vision. Actually bayesian approach is a nice introduction to natural
+stimulus usage. But is bayesian approach a representationist approach? yes
+and no. It is based on the calculation of probilities of some variables yet
+it does not claim that the brain works based on these representations.
+Tothe contrary it explains how the brains decisions are subjects to the
+statistical structure within the environment. Kaldi ki, her
+representation'da kotu olacak diye bir sey yok. One can say and I dont see
+any problem on saying that on the motor cortex the direction of the
+movement is represented for example
+
+\begin{figure}
+\centerline{\label{raw_ss}\includegraphics[width=15cm]{ShowSimpleStats_3_d.png}}
+\caption{In the big scale, Y-axis display the results of different
+experiments, and x-axis the different statistics extracted. Within each
+box, x-axis is the conditions and y-axis is the trials. The staircase black
+line symbolically shows the block identity changes. That is each time there
+is step in the black line another block is started to be recorded and the
+same block continues until the end of the straigt line segment.}
+\end{figure}
+
+Let's make a pause and illustrate this point. Imagine we are given the task
+of predicting the success (whether it's in or not) of a basketball player's
+shot and we are given necessary amounts of video material shot under
+controlled conditions while players are aiming to the circle. The videos
+are composed of frames which represents the time shortly before and shortly
+after the moment where the ball leaves the hand of the basketball player. Given that we
+have only pixel data, it is not surprising that we would like to find some
+heuristics based on the time-series data and find the best parameter which
+predicts best the trajectory of the ball. Our program would most probably
+compute some estimation of the ball trajectory and arm angles of the
+players in order to find the best match. How do humans solves this issue?
+
+Bla bla tackled this issue directly. What they found that
+
+Marr's book.
+
+
+the information processing paradigm as adapatational paradigmin evolution
+presupposes that the information is available to the organism. However I
+think it would be much more relevant to take literally the term
+information: formed inside.
+
+
+the basketball example is great for illustrating the embodiment of the
+perceptual decision. jose paper also is great
+

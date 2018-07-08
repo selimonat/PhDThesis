@@ -1,0 +1,26 @@
+\nomenclatureentry{aV1@[{V1}]\begingroup Primary Visual Cortex\nomeqref {1.0}|nompageref}{8}
+\nomenclatureentry{aRF@[{RF}]\begingroup Receptive Field\nomeqref {1.0}|nompageref}{8}
+\nomenclatureentry{aLGN@[{LGN}]\begingroup Lateral Geniculus Nucleus\nomeqref {1.0}|nompageref}{9}
+\nomenclatureentry{aA17/18@[{A17/18}]\begingroup Area 17/18\nomeqref {1.0}|nompageref}{10}
+\nomenclatureentry{aVSDI@[{VSDI}]\begingroup Voltage-Sensitive Dye Imaging\nomeqref {1.0}|nompageref}{10}
+\nomenclatureentry{aLFP@[{LFP}]\begingroup Local Field Potentials\nomeqref {1.0}|nompageref}{10}
+\nomenclatureentry{aEEG@[{EEG}]\begingroup Electroencephalogram\nomeqref {1.0}|nompageref}{10}
+\nomenclatureentry{aPCA@[{PCA}]\begingroup Principal Component Analysis\nomeqref {2.0}|nompageref}{15}
+\nomenclatureentry{aV2@[{V2}]\begingroup Secondary Visual Area\nomeqref {2.6}|nompageref}{22}
+\nomenclatureentry{aRMS@[{RMS}]\begingroup Root Mean Square\nomeqref {3.0}|nompageref}{28}
+\nomenclatureentry{aCSF@[{CSF}]\begingroup Cerebrospinal Fluid\nomeqref {3.0}|nompageref}{29}
+\nomenclatureentry{aROI@[{ROI}]\begingroup Region of Interest\nomeqref {3.0}|nompageref}{31}
+\nomenclatureentry{aSVD@[{SVD}]\begingroup Singular Value Decomposition\nomeqref {3.0}|nompageref}{31}
+\nomenclatureentry{aSC@[{SC}]\begingroup Specific Activity\nomeqref {3.0}|nompageref}{41}
+\nomenclatureentry{anSC@[{nSC}]\begingroup non-Specific Activity\nomeqref {3.0}|nompageref}{41}
+\nomenclatureentry{aMD@[{MD}]\begingroup Modulation Depth\nomeqref {3.0}|nompageref}{43}
+\nomenclatureentry{aLC@[{LC}]\begingroup Luminance Contrast\nomeqref {3.0}|nompageref}{44}
+\nomenclatureentry{aDA@[{DA}]\begingroup Deceleration/Acceleration Notch\nomeqref {3.0}|nompageref}{44}
+\nomenclatureentry{aFWHM@[{FWHM}]\begingroup Full Width at Half Maximum\nomeqref {3.0}|nompageref}{53}
+\nomenclatureentry{aERP@[{ERP}]\begingroup Event Related Potential\nomeqref {4.0}|nompageref}{64}
+\nomenclatureentry{afMRI@[{fMRI}]\begingroup Functional Magnetic Resonance Imaging\nomeqref {4.0}|nompageref}{64}
+\nomenclatureentry{aMEG@[{MEG}]\begingroup Magnetic Encephalogram\nomeqref {4.0}|nompageref}{64}
+\nomenclatureentry{aCNS@[{CNS}]\begingroup Central Nervous System\nomeqref {5.0}|nompageref}{83}
+\nomenclatureentry{aKL@[{KL}]\begingroup Kullback-Leibler\nomeqref {5.6}|nompageref}{89}
+\nomenclatureentry{aLIP@[{LIP}]\begingroup Lateral Intraparietal Area\nomeqref {5.8}|nompageref}{101}
+\nomenclatureentry{aFEF@[{FEF}]\begingroup Frontal Eye Field\nomeqref {5.8}|nompageref}{101}

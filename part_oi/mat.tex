@@ -1,0 +1,199 @@
+\subsection{Experimental Procedures}
+
+
+\subsubsection{Stimulus Acquisition and Presentation}
+
+Natural movies were recorded by freely moving cats with a head-mounted pair
+of cameras (DFM-5303, The Imaging Source Europe, Bremen, Germany) while
+exploring a forest (Fig. \ref{basket}D and \ref{setup}). In this study we
+used the data recorded from one of the cameras only, hence no binocular
+depth cues were given. The cameras and the supporting frame ($\approx$70
+gr) were reversibly attached to an electrophysiological implant.
+
+The gain of the camera was set to a constant value and the frames were
+recorded with a sampling rate of 25 Hz. The output of the camera was
+recorded with a VCR (Roadstar, VDR-6205K, Novazzano, Switzerland) carried
+by the experimenter. Recorded analogue movies were later digitalized and
+transformed to grayscale with at a size of 640\texttimes480 pixels. The
+average and RMS \nomenclature{RMS}{Root Mean Square}value of brightness was
+then equalized to the respective average values of the movies in our
+database so that each frame in our database had globally the same average
+luminance and RMS value. We excluded movies that were solely characterized
+by immobile fixation behavior of the cats.
+
+A 24" Sony monitor (Sony Triniton GDM-FW900, Tokyo, Japan) covering a
+visual field of $30^{\circ}\times40^{\circ}$ was used to present the
+stimuli with refresh rate of 100 Hz (thus each cat-cam movie frame was
+repeated 4 times). The stimuli were shown using Matlab (Mathworks, Natick,
+MA, USA) and Psychophysics Toolbox extensions
+\citep{brainard1997a,pelli1997a}. The duration of the presentation was 2
+seconds including 200 ms prestimulus period. Stimuli were presented
+binocularly on the monitor located 50 cm distant from the cat's eyes. Eyes
+were converged using a prism in front of the eye that was ipsilateral to
+the recorded hemisphere. The mean achromatic luminance of the stimuli was
+11 cd/m\textsuperscript{2} with 54 cd/m\textsuperscript{2} for brightest,
+and 1.6 cd/m\textsuperscript{2} for darkest pixels. The average brightness
+of the screen during stimulation and interstimulus intervals (15 s) was
+kept constant during the course of the experiment. Stimuli were presented
+in pseudo-random order in blocks.
+
+\subsubsection{Stimulus Conditions}
+
+During full-field conditions natural movies and gratings were shown across
+the entire monitor screen. In each experiment, two different natural movies
+(movie 1 and movie 2) and gratings (horizontal and vertical) were used.
+Square wave gratings with spatial frequency of 0.2 cycles/$^{\circ}$ and
+drifting velocity of 6 Hz were shown in horizontal and vertical
+orientation. Their mean luminance and RMS contrast were adjusted to match
+the natural movies.
+
+\subsubsection{Experimental Setup}
+
+All surgical and experimental procedures were approved by the German Animal
+Care and Use Committee (AZ 9.93.2.10.32.07.032) in accordance with the
+Deutsche Tierschutzgesetz and the NIH guidelines. In brief, animals were
+initially anesthetized with Ketamine (15 mg/kg i.m.) and Xylazine (1 mg/kg
+i.m.), supplemented with Atropine (0.05 mg/kg i.m.). After tracheotomy,
+animals were artificially respirated, continuously anaesthetized with
+0.8-1.5\% Isoflurane in a 1:1 mixture of O$_{{2}}$/N$_{{2}}$O, and fed
+intravenously. Heart rate, intratracheal pressure, expired CO$_{{2}}$, body
+temperature, and EEG were monitored during the entire experiment. The skull
+was opened above A18 and the dura was resected.
+Paralysis was induced and maintained by
+Alloferin\textsuperscript{\textregistered}. Eyes were covered with
+zero-power contact lenses as protectives. External lenses were used to
+focus the eyes on the screen. To control for eye drift, the position of the
+area centralis and RF positions were repeatedly measured. A
+stainless steel chamber was mounted and the cortex was stained for 2-3
+hours with voltage-sensitive dye (RH-1691), and subsequently washed out
+with artificial CSF \nomenclature{CSF}{Cerebrospinal Fluid}. 
+
+\subsubsection{Retinotopical Mappings}
+
+Prior to optical recordings, the topographic mapping between the cortical
+surface and the visual field were scrutinized by means of several electrode
+penetrations (Fig. \ref{loc_retinotopic}; penetration sites and
+corresponding RFs are color coded). Stimuli were positioned so that the
+upper movie patch matched the RF position of the simultaneously recorded
+multiunit activity (Fig. \ref{loc_retinotopic}, red circle and rectangle).
+This ensured that the distance between the Gaussian masks were separated
+beyond the size of classical RFs.
+
+\begin{SCfigure}[50][!t]
+\includegraphics[width=0.35\textwidth]{part_oi/figures/Local_figure02b.png}
+
+\caption[Retinotopical
+Mapping.]{\protect\input{part_oi/Local_legend02b.tex}}
+
+\label{loc_retinotopic} 
+
+\end{SCfigure} 
+
+
+\subsubsection{Data Acquisition}
+
+Optical imaging was accomplished using an Imager 3001 (Optical Imaging Inc,
+Mountainside, NY) and a tandem lens macroscope (Ratzlaff \& Grinvald, 1991),
+85 mm/1.2 toward camera and 50 mm/1.2 toward subject, attached to a CCD
+camera (DalStar, Dalsa, Colorado Springs). The camera was focused
+$\approx$400 nm below cortical surface. For detection of changes in
+fluorescence the cortex was illuminated with light of 630\textpm10 nm
+wavelength and emitted light was high-pass filtered with cutoff at 665 nm
+using a dichroic filter system. Cortical images were acquired at a frame
+rate of 220 Hz covering regions of approximately 10\texttimes5 mm of A18. 
+
+Our experimental data that we base our analysis contains 11 hemispheres (10
+animals) for the analysis reported in the Section \ref{fullfield}. For
+electrophysiological recordings before and in parallel with VSDI, an in
+house-build device was used that allowed targeted penetrations at different
+locations without opening the sealed recording chamber.
+
+\subsubsection{Preprocessing}
+
+The raw data was processed in two steps. First, in order to remove
+differences in illumination across different pixels, divisive normalization
+is performed on all the recorded raw samples of a given pixel by its DC
+level during prestimulus period. Thus the average value of each pixel
+during this period is exactly equal to one for all pixels. Divisive
+normalization is preferred over subtractive normalization as it also
+equalizes for standard deviation of different pixels. This is due to the
+linear relationship between the prestimulus DC amplitude and standard
+deviation of the pixels' activities. Second, the removal of heart-beat and
+respiration related artifacts were realized by subtracting the average
+blank signal recorded in the absence of stimulation. The differences are
+later normalized by the blank signal in order to be independent of the
+global activity level fluctuations which occurs during the course of an
+experiment. As our recordings were synchronized with the heart-beat cycle
+of the animal, this blank subtraction step effectively removes these
+artifacts. Moreover this method is preferred over the cocktail blank
+correction because our conditions were not composed of orthogonal stimuli.
+These steps were applied for each trial separately and the outcome was
+averaged across trials. The number of trials ranged from 20 to 37 for
+different experiments.
+
+\subsubsection{Region of Interest Selection}
+
+In cases where we restricted the analysis to a limited ROI
+\nomenclature{ROI}{Region of Interest} of the recorded area, selection
+heuristics were based on either time averages or peak activity levels. From
+these average or peak activity maps, ROIs were created according to the
+percentile ranges of the pixel's activities. For example a given set of
+pixels could be assigned to belong to the percentile interval of 95-100\%,
+90-95\% and so on. This method of ROI selection has many advantages. As the
+selection merely depends on the ranking of the pixels based on their
+activity levels and not their absolute value, it facilitates the usage of
+the same heuristics for different experiments with varying absolute
+activity levels.  A further benefit is that different ROIs originating from
+different experiments are all composed of same number of pixels. For
+comparison of evoked activity levels during localized presentation of
+natural movies, we focused on the highest 5th percentile of the pixels.
+However the same results were obtained also with a selection based on the
+10\textsuperscript{th} percentile.
+
+\subsubsection{Latency Detection}
+
+Evaluation of the response times was realized on z-score transformed data.
+Z-score directly translates a given activity level to its distance from
+baseline in units of the baseline process' standard deviation. It is
+therefore invariant to changes on absolute level of activities which occurs
+during different experiments. Baseline activity was characterized by
+temporarily averaging activity levels during prestimulus period. Standard
+deviation of the baseline activity for a given pixel was computed by
+pooling all its prestimulus samples over all conditions; this increased the
+sample size and therefore reduced the uncertainty of the approximation.
+Because of the slight spatial dependencies of average and standard
+deviation statistics, we computed each pixels' average and standard
+deviations for the baseline period separately. After z-score
+transformation, latency was determined by detecting for each pixel the time
+point at which activity exceeded 2 times the prestimulus time standard
+deviation in two consecutive time frames. 
+
+
+\subsubsection{Singular Value Decomposition} 
+
+We applied SVD \nomenclature{SVD}{Singular Value Decomposition} to the
+evoked activity by using \textit{svd} command of Matlab software
+(Mathworks, Natick, MA, USA) after transforming each time frame into a
+vector. Singular values increased linearly in the logarithmic scale and
+significant components were detected by identifying the first component
+which had a significantly different increase in its weight with respect to
+the previous components.
+
+
+\subsubsection{Detection of Confidence Intervals}
+
+Due to somewhat large variability across experiments, in some cases it was
+preferable to compare first natural and grating conditions in a pair-wise
+fashion within each experiment and then evaluate the significance of the
+deviations across all experiments. In order to make the pair-wise
+comparison possible we first averaged across both natural movie and grating
+conditions. In these cases the statistical tests were carried on 11
+observations. In all other cases, all observations corresponding to a given
+condition across all experiments were used for statistical tests. This
+amounted to 22 observations per condition.
+
+In order to estimate the confidence intervals we used the statistical
+bootstrap method. We derived the distribution of the statistic of interest
+by resampling the observations with replacement $10^5$ times. The
+confidence intervals are given in the text within square brackets following
+the mean values.

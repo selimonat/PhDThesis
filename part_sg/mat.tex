@@ -1,0 +1,295 @@
+\label{part_sg_mm}
+
+
+\subsection{Participants} 
+
+
+EEG was recorded from 30 healthy university students, who were first
+screened for normal sight and hearing using standard tests (Landolt C chart
+and calibrated PC-based audiometer) and gave their informed written consent
+to participate in the study. Of these, 6 subjects were discarded prior to
+data analysis due to noisy data. The remaining 24 subjects (14 female, 23
+right-handed) were aged between 19 and 33 years (mean: 23, standard
+deviation: 3). The experiment was conducted in accordance with the
+Declaration of Helsinki.
+
+\subsection{Experimental Design}
+
+In order to investigate multisensory integration processing, it is possible
+to contrast responses to unimodal and bimodal stimuli, or alternatively, to
+compare congruent and incongruent bimodal stimulation. To address both of
+these contrasts, we presented auditory and visual stimuli in four
+stimulation conditions: bimodal congruent, bimodal incongruent, unimodal
+visual, and unimodal auditory.  
+
+\begin{SCfigure}[][!htb]
+\includegraphics[width=0.5\textwidth]{part_sg/figure/Figure1_ExpParadigm.png}
+\caption[Schematic Diagram of Both Experimental
+Paradigms.]{\protect\input{part_sg/legend_1.tex}}
+\label{expparadigm}\end{SCfigure} 
+
+
+
+To engage their attention, participants were required to perform a
+congruency judgement task. In the bimodal case, subjects were asked to
+judge the temporal congruency of simultaneously presented auditory and
+visual stimulus components, thus ensuring that attention would be equally
+allocated to both modalities. To similarly engage subjects' attention
+during unimodal presentations, we adjusted the task to a sequential
+comparison of two consecutively presented unimodal stimuli, meaning that
+each such trial contained two stimuli. A sequential pair could consist of
+any combination of the two modalities (V-A, A-V, V-V or A-A). In subsequent
+EEG analysis, however, each stimulus of these sequentially presented pairs
+was treated as an independent unimodal stimulus in either the unimodal
+visual or auditory condition. 
+
+
+
+We chose a self-paced paradigm in which subjects triggered trial onset via
+button press (see Fig. \ref{expparadigm}). In doing so, we aimed to
+maximise participants' concentration and minimise eye-movements during
+stimulus presentation. Each trial began with the presentation of a red
+fixation cross. After a short, random delay, the stimulus appeared on the
+screen and/or was heard through headphones. In the case of bimodal stimuli,
+auditory and visual components were simultaneously presented, after which
+subjects completed the task by pressing one of two buttons (denoting
+"congruent" and "incongruent"). In the case of sequential trials, two
+stimuli were shown consecutively, separated by a short, random time
+interval (500-1500 ms), and subjects completed the task after the second
+stimulus. For purposes of behavioural analysis, task performance was
+evaluated on a trial basis.
+
+
+
+\subsection{Stimuli}
+
+Stimuli consisted of a rotating Gabor patch, a frequency-modulated tone, or
+both presented simultaneously, and lasted for 6 seconds. Gabor patches were
+grayscale, had a sinusoidal frequency of 0.33 cycles/$^\circ$, subtended
+approximately 4.5$^\circ$ of visual angle (FWHM) and were centrally
+presented on a gray background identical to the mean luminance of the
+patch. Auditory stimuli had constant amplitude, and were ramped with a 10
+ms half-cosine window to avoid clicks or other artifacts. Movies of visual
+stimuli were sampled at a frame rate of 25 Hz, and uncompressed visual and
+auditory stimuli were merged into an avi file for bimodal presentation
+using MEncoder (MPlayer version 1.Orc1, www.mplayerhq.hu).
+
+
+
+Both unimodal stimulus components varied along only one feature dimension:
+orientation of Gabor patches spanned $180^\circ$ centred around the
+horizontal axis, and the frequency of tones was modulated between 200 and
+300 Hz. This ongoing feature modulation was determined by trajectories that
+changed smoothly but irregularly over time (see Fig. \ref{xcorrpower}).
+Visual and auditory feature dimensions were chosen based on a behavioural
+pilot study (see Section \ref{app_eeg} for more detail on how we have
+selected which feature to modulate during the main experiment) 32
+trajectories were created in Fourier space by assembling a Gaussian power
+spectrum with a cut-off frequency of 1 Hz (resulting in a cut-off frequency
+of $\approx$4 Hz for stimulus speed) and random phase information. Each
+trajectory was constructed as part of a set of 4 mutually orthogonal
+trajectories, and in total 8 sets were created using an iterative
+optimisation procedure. The Fourier representation was then transformed to
+the time domain using the inverse fast Fourier transform. Stimuli were
+presented in congruent and incongruent conditions, where visual and
+auditory stimuli were modulated by identical or orthogonal trajectories
+(see below). This allowed us to precisely control for the degree of
+incongruence. 
+
+
+
+Stimuli were organised into four blocks, each consisting of 24 congruent
+audiovisual, 24 incongruent audiovisual, 24 visual, and 24 auditory stimuli
+(yielding 48 simultaneous and 24 sequential trials). Each block was created
+from two sets of orthogonal trajectories, with each trajectory occurring
+three times in each of the four conditions. Trajectories were balanced over
+conditions and presentation order of paired stimuli. Block order and
+stimulus order within blocks was randomised over subjects. Depending on
+time constraints and subject alertness, participants completed either 3 or
+4 blocks (equivalent to 288 or 384 stimuli).
+
+
+
+\subsection{Presentation \& Recording}
+
+Subjects were comfortably seated approximately 1 m from the presentation
+screen in a dimly-lit recording room. Stimuli were presented on a 21"
+monitor (Samsung SyncMaster 1100 DF) with a refresh rate of 100 Hz. The
+presentation software (Neurobehavioural Systems, version 10.3) was run on a
+Macintosh Pro (Apple Computers). Sounds were delivered via in-ear
+headphones (EAR-Tone 3A, Etymotic Research Inc.) at a comfortable volume
+chosen by the subject. During trials, subjects were asked to remain still
+and keep their gaze fixated on a centred, red fixation cross. 
+
+
+
+EEG was recorded from 28 sintered Ag/AgCl ring electrodes mounted in a cap
+(EasyCap GmbH, Herrsching-Breitbrunn, Germany) according to the standard
+10/20 system, referenced to linked mastoids. Four additional electrodes
+were used to capture vertical and horizontal electro-oculograms (bipolar
+montages). The upper threshold for impedances was 5 kOhm. Two of the 30
+standard electrodes (FT8 and FT7) were exchanged for diodes to capture
+visual and auditory stimulus onset. Signal amplification, filtering and
+digitisation were carried out by a 32-channel amplifier system (Synamps1,
+Neuroscan, Compudedics, TX, USA). The data were digitized at 500 Hz and
+online bandpass-filtered within 0.3 and 100 Hz to prevent aliasing. The
+digital signal was recorded by a PC-workstation (Intel Pentium 4, 2.41 GHz,
+1GB RAM).
+
+
+
+The diode signals revealed that the visual stimulus preceded the auditory
+by 25 ms \textemdash a small delay compared to the cut-off frequency of the
+trajectories \textemdash due to the stimulation software used.
+
+
+\subsection{Behavioural Analysis}
+
+Behavioural analysis served two purposes: first, to determine whether
+subjects were attentive during the experiment; second, to ensure that
+subjects could perceptually distinguish bimodal congruent from bimodal
+incongruent stimuli. Task performance was evaluated in terms of trials, and
+simultaneous and sequential stimulus presentations were dealt with
+separately.
+
+
+
+To determine whether subjects performed above chance level, an exact
+Binomial test was performed for each subject. We furthermore used signal
+detection methods to quantify subjects' sensitivity and bias in
+discriminating between congruent and incongruent bimodal stimuli (see
+\cite{Wickens2002a} for more detail). The sensitivity measure \textit{d'}
+was computed from hit (correct identification of congruent stimulus) and
+false alarm rates.  Assuming that both rates come from standard normal
+distributions, \textit{d'} estimates the distance between the two
+distributions in units of standard deviations \textemdash the further apart
+the two distributions, the easier the congruency can be detected, and the
+higher the \textit{d'}. The response bias estimate ($\log{\beta}$) informs
+us whether the observer favours a 'congruent' or 'incongruent' response,
+with a negative value indicating a bias to congruence, and a positive value
+indicating an incongruence bias.
+
+\subsection{Pre-processing \& Artefact Removal}
+
+All data analysis was carried out using MatLab (The MathWorks, Natick, MA),
+using the EEGLab toolbox \citep{delorme2004a} and custom-made functions.
+Before artefact removal, all data were bandpass filtered between 0.5 and
+100 Hz and epoched. Eye-movement artefacts were eliminated using
+Independent Component Analysis \citep{Jung2000a}. Other muscle artefacts
+were detected by visual inspection, and whole trials were rejected. All
+trials were baseline corrected relative to 500 ms of pre-stimulus activity.
+
+\subsection{Stimulus Locking}
+
+Two approaches were used to quantify stimulus locking, both involving
+cross-correlations between EEG activity and the magnitude of change of the
+stimulus (see Fig. \ref{xcorrpower}). All correlation coefficients were
+normalised so that the values lie between -1 and 1, with 0 indicating the
+absence of a correlation. Correlation coefficients are calculated for all
+temporal offsets between stimulus and response. Significant coefficients at
+positive time-lags indicate that the stimulus leads the cortical responses,
+that is the brain response is locked to the stimulus dynamics. Due to the
+finite autocorrelation of the stimulus, a locking might even occur at
+negative lags. 
+
+
+
+Our first analysis approach (spectrotemporal analysis) was concerned with
+the question of whether the time course of stimulus-induced power changes
+in the EEG correlates with changes in stimulus speed . This approach
+allowed us to investigate whether the power in any frequency band of the
+measured EEG signals locks to the dynamic stimulus. 
+
+A second analysis approach (waveform analysis) was used to examine whether
+the EEG waveform itself locks to the temporal profile of the stimulus. This
+approach was used to investigate whether there is a stable
+phase-relationship between evoked EEG response and stimulus. A significant
+correlation coefficient indicates that the phase of the EEG signal locks to
+the ongoing stimulus. In contrast to the spectrotemporal approach, this
+analysis only reveals locking of frequencies common to both stimulus and
+EEG. A detailed description of each approach is given below.
+
+\begin{figure}[!htb] \centerline{
+\includegraphics[width=\textwidth]{part_sg/figure/Figure2_AnalysisMethod}}
+\caption[Two Correlation Analysis Approaches.]{\protect\input{part_sg/legend_2.tex}} \label{xcorrpower}\end{figure} 
+
+
+
+In the spectrotemporal analysis approach, spectral power changes in
+response to visual speed were determined on a trial-by-trial basis (Fig.
+\ref{xcorrpower}, left panels). For each trial, we estimated the Short-time
+Fourier Transform using a window length of 80 ms shifted with an overlap of
+78 ms. Each data segment was windowed (Hamming window) and zero-padded (to
+256 samples $\approx$512 ms). Thus, we achieved a nominal temporal
+resolution of 2 ms and frequency resolution of approximately 2 Hz. The
+amplitude of the Short-time Fourier Transform was squared to obtain
+spectral power, and then z-transformed with respect to baseline power. Due
+to the power increase evoked by stimulus onset, we removed the first 500 ms
+of each trial which is uninformative for the present purpose and
+investigated only the stationary response. The power of individual
+frequencies was then either summed across our frequency range of interest
+(20-35 Hz) corresponding to previous results \citep{kayser2004b}, or kept
+at its full resolution. Each frequency band was then separately
+cross-correlated with the speed of the stimulus, given by the absolute
+values of the trajectory's first derivative. The resulting
+cross-correlations were then averaged using Fisher's z-transform over all
+trials within each condition, yielding one cross-correlogram per subject,
+condition, frequency band and channel. Bimodal incongruent trials resulted
+in two cross-correlograms due to the difference in visual and auditory
+stimulation trajectories. 
+
+
+
+The waveform analysis approach evaluated whether stimulus speed is
+reflected in the EEG waveform by cross-correlating stimulus speed with
+stimulus-specific ERPs. An ERP was computed by averaging the EEG over those
+trials in which the same stimulus (i.e. identical trajectories) was shown
+for the modality in question (Fig. \ref{xcorrpower}, right panels). Due to the
+limited number of trajectory repetitions throughout the experiment, ERPs
+were constructed from a maximum of 9 waveforms (please note that the number
+of trials is substantially larger). Stimulus-specific ERPs were then
+cross-correlated with the speed profile of the corresponding trajectory.
+The stimulus average for each subject, condition, and channel was obtained,
+again using Fisher's z-transform. As above, the grand average was
+calculated using the median.
+
+
+
+Our first research question asked whether there is any evidence for
+stimulus-locking to visual and auditory stimulus dynamics, in other words
+how the cortex responds to the presence of a time-varying stimulus. To
+address this, for each modality we averaged over all conditions containing
+input to that modality, e.g. unimodal visual and both bimodal conditions
+were averaged to investigate visual stimulus-locking. This increased the
+amount of data used in our analysis, thus stabilising effects that were
+otherwise small and less consistent between subjects. In addition, we can
+thus estimate the modality-specific, automatic, bottom-up response
+irrespective of task factors or information present in other modalities.
+After evaluating the presence or absence of stimulus locking, the original
+conditions were used to explore the second question, namely whether locking
+is modulated by multisensory interaction. Finally, to address the third
+research question, we estimated changes in stimulus locking over the
+duration of a trial. This was done using a time-dependent cross-correlation
+function. Cross-correlations were computed within a 500 ms shifting time
+window (250 ms overlap), thus yielding 23 cross-correlograms per trial.
+Averaging over trials, conditions and subjects was performed as above.
+
+\subsection{Evaluating Statistical Significance}
+
+Significance of the resulting correlation coefficients was tested using
+bootstrap techniques. To test for significant peaks within a subject and
+for a given condition, we computed 1000 cross-correlations composed of
+averaged cross-correlations between non-matching EEG data and stimuli. From
+this distribution, the 95\% and 99\% confidence intervals were estimated.
+To test significance of the grand average, a distribution of 1000 medians
+was generated to determine confidence intervals.
+
+
+
+To test for significant condition differences, permutation testing was
+used. For each subject, 1000 surrogate conditions were created by pooling
+and randomly redrawing trials from both conditions without replacement. A
+distribution of condition differences was obtained by subtracting the
+resulting 1000 grand averages (median) of both conditions.
+
+

@@ -1,0 +1,190 @@
+\documentclass[a4paper,11pt]{report} 
+\usepackage{wrapfig} 
+\usepackage{titlesec}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{ae}
+\usepackage[T1]{fontenc}
+\usepackage[norefpage]{nomencl}
+\usepackage{fancybox}
+%\usepackage{ukdate} 
+\usepackage{pdfpages}
+\usepackage{setspace} 
+\usepackage{rotating}
+\usepackage{subfigure}
+\usepackage{natbib,natbibspacing} 
+%\usepackage{hyperref}
+\usepackage{textcomp}
+\usepackage[innercaption]{sidecap}
+\usepackage[scriptsize]{caption}
+\usepackage[top=3.5cm,bottom=3.5cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{epigraph}
+\usepackage{longtable}%necessary for the nomenclature
+\usepackage[avantgarde]{quotchap}
+%removes paragraph indentation and sets a space btw different paragraphs
+\parindent 0pt
+\parskip 1ex
+%controls the line spacing
+%\renewcommand{\baselinestretch}{1.33}
+\renewcommand{\epigraphwidth}{10cm}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}%makes the footnote marks
+%with symbols rather than numbers
+\renewcommand{\nomname}{List of Abbreviations} % Header
+\makenomenclature
+\setlength{\nomitemsep}{-\parsep}%sets the distance btw abbreviations
+
+
+\bibpunct{(}{)}{,}{a}{}{;}
+
+\DeclareGraphicsExtensions{.pdf,.png,.ps,.tif}
+
+%make subsubsection titles italic
+%\titleformat{\subsection}{\itshape}{\thesubsection}{1em}{}
+%
+%
+
+
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{4}
+
+
+%redefine the plain page style
+\fancypagestyle{plain}{%
+\fancyhf{} % clear all header and footer fields
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}}
+\date{Osnabr\"uck, Dezember 2009}
+
+\setlength\oddsidemargin{1cm}
+\setlength{\headheight}{13.6pt}
+\begin{document}
+
+
+
+\pagestyle{plain}
+
+\title{
+%\begin{center}
+\includegraphics[scale=1.5]{./intro/figures/logo.png}\\
+%\end{center} 
+\vspace{1.2cm}
+\huge{\textbf{Sensory Integration under Natural Conditions: a Theoretical,
+Physiological and Behavioral Approach}}\\[1.2cm]
+\Large{
+Dissertation \\
+zur Erlangung des Grades \\
+"Doktor~der~Kognitionwissenschaft"\\
+im Fachbereich Humanwissenschaften der\\ 
+Universit\"at~Osnabr\"uck} \\[1.2cm]
+vorgelegt von \\ [0.5cm]
+\Large{\textbf{Selim Onat}} \\[1.2cm]
+}
+
+\maketitle
+\chapter*{Acknowledgments} 
+		\input{acknowledgements.tex}
+\chapter*{Curriculum Vitae}		
+		\input{cv.tex}
+
+\begin{abstract} 
+\input{intro/abstract.tex} 
+\end{abstract}
+
+\tableofcontents 
+\listoffigures
+
+
+%Define the page style
+\newpage
+\pagenumbering{arabic}
+
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername.\thechapter{ }#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
+\fancyhead[OC]{\leftmark}
+\fancyhead[EC]{\rightmark}
+\fancyfoot[EL,OR]{\thepage}
+
+
+	%\dropchapter{5cm}
+	\chapter{General Introduction}
+	\input{intro/Intro.tex} 
+		
+	
+	\chapter[A Simulation Approach: Learning Binocular Receptive Fields from Natural
+	Movies]{A Simulation Approach: Learning Binocular Receptive Fields from Natural
+	Movies\footnote{I am thankful to Christoph Kayser for his support for
+	the preparation of the results presented in this Chapter.}} 
+	
+	\chaptermark{Learning of Binocular Complex Cells}	
+	\label{part_rf}
+	\input{part_rf/part_rf.tex}
+	
+	\chapter[An Optical Imaging Study: Cortical Dynamics During Processing
+	of Natural Movies]{An Optical Imaging Study: Cortical Dynamics During
+	Processing of Natural Movies\footnote{This Chapter is the result of a
+	tight and fruitful colloboration with Dr. Dirk Jancke in
+	Ruhr-University Bochum. All the experiments are realized by him and his
+	team in Bochum. The recording of movies, preparation of stimulation
+	protocol and all data analysis are realized by me. The results
+	presented here will form the basis for three different publications. As
+	of today, two of these are submitted \citep{Onat2009a, Onat2009b}, and
+	the third one \citep{Onat2009c} is close to the final state.}}
+	
+	\chaptermark{Cortical Dynamics During Processing of Natural Movies}
+	\label{part_oi} 
+	\input{part_oi/part_oi.tex} 
+	
+	
+	\chapter[An EEG Study: Motion Locking and Crossmodal Integration in
+	Humans]{An EEG Study: Motion Locking and Crossmodal Integration in
+	Humans\footnote{This Chapter is based on the Master thesis of Sonja
+	Schall \citep{schall2008a} which was supervised by Peter K\"{o}nig and
+	Selim Onat. A similar version of this Chapter is published
+	\citep{schall2009a}. }} 
+	
+	\chaptermark{Motion Locking in Human EEG}
+	\label{part_eeg} 
+	\input{part_sg/part_sg.tex} 
+
+
+\chapter[A Behavioral Approach:
+Crossmodal Integration for the Control of Overt Attention]{A Behavioral Approach:
+Crossmodal Integration for the Control of Overt Attention\footnote{This chapter is based on a publication \cite{onat2007a}}}
+		\chaptermark{Audiovisual Integration under Natural Conditions}
+		\label{part_oa} 
+		\input{part_cm/part_cm.tex}
+
+
+%\chapter{Integrating Different Features During Overt Attention}
+%		\input{part_oa/part_oa.tex}
+
+
+\chapter{General Discussion}
+	\input{GeneralDiscussion.tex}
+
+
+\chapter{Appendix}
+	\input{Appendix/Appendix.tex}
+
+	
+\chapter*{Disclaimer}
+	\addcontentsline{toc}{chapter}{Disclaimer}
+	\input{Appendix/Disclaimer.tex}
+
+
+%\cleardoublepage 
+\addcontentsline{toc}{chapter}{Abbreviations}
+\markboth{\nomname}{\nomname}
+\printnomenclature
+
+\addcontentsline{toc}{chapter}{Bibliography}
+
+\bibliographystyle{selim} 
+\bibliography{./PhDBiblio}
+
+
+\end{document}

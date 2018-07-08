@@ -1,0 +1,324 @@
+
+\subsection{Results} 
+
+We presented natural movies along with drifting square gratings (horizontal
+and vertical) to anesthetized cats (11 hemispheres, 10 cats) and performed
+voltage-sensitive dye imaging on cortical area 18 of cat's visual cortex.
+Over the past decades during electrophysiological and imaging experiments
+this model sensory cortex has been extensively investigated with simple
+laboratory stimuli. Our natural movies were captured by cats freely
+exploring a natural habitat and contain a rich spatio-temporal structure.
+They depict natural scenes from the cat's point of view and incorporate
+temporal dynamics mainly due to head and body motion.  In order to improve
+the generality of our results we presented a total of 9 different movies
+and in cases where the same movies were used across different experiments,
+different portions of the movies were used to drive the recorded cortical
+area. Prior to and during the experiment, the recordings were complemented
+by retinotopical mappings in order to certify which local parts of the
+movies were directly received by the cortical tissue that was being imaged.
+
+
+\subsubsection{Spatio-Temporal Population Dynamics Evoked by Natural and
+Grating Stimuli} 
+
+\label{oi_raw}
+
+\begin{figure}
+\includegraphics[width=\textwidth]{part_oi/figures/NatPaper_figure01}
+ 
+\caption[Recording Cortical Responses to Natural Stimuli and Gratings.]
+{ \protect\input{part_oi/NatPaper_legend_1.tex}}
+\label{np1}
+\end{figure} 
+
+%\begin{figure}[!t]
+%\caption[Recording Cortical Responses to Natural Stimuli and Gratings.]
+%{ \protect\input{part_oi/NatPaper_legend_1.tex}}
+%\end{figure}
+
+
+
+
+Both kinds of stimuli were presented subtending a large part of the visual
+field ($\approx 40^{\circ} \times 30^{\circ}$) under equal global luminance
+and luminance contrast conditions (Fig. \ref{np1}). However due to the
+intrinsic properties of natural movies, local average luminance and
+luminance contrast values exhibit some degree of variation across the
+presentation time leading to discrepancies between global and local
+statistics. For example, a relatively uniform surface of a piece of a wood
+or a leaf that is represented with a very peaky distribution of local
+brightness values would necessarily have a low luminance contrast. As these
+areas in the image cannot be constrained to have a higher luminance
+contrast without impairing the quality of the movie we did not control for
+these local variations, thus local contrast and average luminance in a
+given restricted area of the movie was occasionally higher or lower than
+the global target values. Within these restricted regions, the distribution
+of the local luminance contrast values were slightly negatively (p
+\textless 0.05) skewed (skewness = -0.18) with a standard deviation of
+9.7\% (9.3\%/10.1\%\footnote{In the following, bootstrap confidence
+intervals are presented in brackets according to the following convention
+(Lower Bound/ Upper Bound, $p$ = Confidence Level)}, $p = 0.05$) and an
+median luminance contrast sensibly but significantly higher than the
+luminance contrast of the grating stimuli (101.25\%, Wilcoxon-Signed Rank,
+$p \textless 0.05$, see Fig. \ref{np4} for the distribution of contrast
+values of all the frames). There was no systematic bias that caused the
+part of the movies that were directly received by the recorded area to be
+lower than the global statistics. Therefore we consider that the local
+fluctuations do not constitute a major obstacle for the comparison of
+activities across stimulus categories and the differences in the activity
+levels are not straightforwardly attributable to the local differences in
+stimulus power. 
+
+The region which was recorded covered a surface of approximately 1 cm and
+it was driven by a portion of $3^\circ$ to $4^\circ$  of visual stimulus
+(Fig. \ref{np1}A, white rectangle in leftmost column). It contained a large
+number of neuronal components spanning multiple orientation columns and
+pinwheels; it thus constituted a representative sample of an early visual
+cortex. Fig. \ref{np1}A depicts the evoked activity recorded under
+different stimulation conditions along with the local portions of the movie
+frames directly received by the recorded area; the cortical response is
+represented with 20 frames each representing the average activity during
+non-overlapping intervals of 100 ms. With the onset of the natural movies
+an excitatory response was observed within the first 100 ms. (Fig.
+\ref{np1}A, first and second rows, see also Fig. S1). The average latency
+computed from the spatially averaged data (Fig. \ref{np1}B) was 57 ms (SD =
+12 ms) and it was not significantly different than the latency of 55 ms (SD
+= 11ms, paired t(21) = -0.51, $p = 0.61$) observed in response to grating
+stimuli. However, computing the latency separately for each pixel, we found
+that not all the pixels responded in the same time to the stimulus onset.
+The spatial distribution of latencies was much more variable in response to
+natural movies. To evaluate the spatial inhomogeneity we computed the
+standard deviation of pixel latencies; the median standard deviation
+computed over all experiments (n = 11) was 17 ms and 40 ms ($p \textless
+0.001$, signtest) for grating and natural movie stimuli respectively. This
+suggests that the onset of natural movies do generate a spatially patterned
+and inhomogeneous activity across the cortical surface. 
+
+Following the onset of grating stimuli evoked responses appeared in the
+form of ripple-like spatial patterns characteristic of the cortical
+columnar architecture for orientation selectivity (Fig.  \ref{np1}A, third row and
+black trace). This was accompanied by a strong orientation unspecific
+excitation distributed widely across the imaged area. Activity increased
+sharply until 300 ms, and then constantly decayed (Fig. \ref{np1}B, black curve).
+On the other hand responses to natural movies (Fig. \ref{np1}A, first and second
+rows and red/blue traces), exhibited dynamic spatial modulations
+characterized by the emergence and propagation of spatial activity
+patterns. These spatial patterns co-occurred with temporal fluctuations in
+the overall activity levels. The appearance of large regions of low (e.g.
+frame 6 in movie 1 and frame 10 in movie 2) activity suggests that
+excitatory drives were at times either absent or completely
+counter-balanced by inhibition. At these intervals the average activity
+within the imaged area approached to prestimulus baseline levels suggesting
+that the balance between excitation and inhibition were constantly subject
+to modification. 
+
+\subsubsection{Locking of Activity to the Stimulus Motion}
+
+\label{oi_motionlock}
+
+Temporal dynamics of our natural movies were dominated by the body and
+head motion of the cat. In parallel, we observed that the time-course of
+the global activity i.e. average activity of the recorded cortical area,
+during stimulation with natural movies displayed considerable fluctuations.
+For each movie within the relevant local portion we computed the amplitude
+of the flow-field vector representing the motion between consecutive frames
+(Fig. \ref{np2}A black traces; see also Fig. S1). Owing to relatively long
+recording interval, we quantified the extent to which the observed
+fluctuations in global activity were related to the absolute velocity
+profiles of the movies by computing the correlation coefficient at
+different lags of time (Fig. \ref{np2}B, right panel). For the two examples shown
+in Fig. \ref{np2}A, the cross-correlogram peaked at approximately 100 ms and
+reached values up to 0.7 (Fig. \ref{np2}B, blue and red traces). The correlation
+curve averaged across experiments peaked at 90 ms with a correlation value
+of 0.41 (0.6/0.15, $p = 0.05$) and was significantly different than zero at
+the peak position (Wilcoxon-Signed Rank, $p \textless 0.001$; Fig.
+\ref{np2}B, green trace). In order to evaluate the variability of the peak
+positions across different experiments and movies we detected the peak
+position of the correlation curves between the interval of 0 to 300 ms. The
+average peak was located at 91.3 ms (71/122 ms, $p = 0.05$, Fig.
+\ref{np2}B, gray horizontal bar). These results show that motion cues
+within dynamic natural stimuli entail spatially widespread activity
+fluctuations by simultaneously driving large numbers of neurons and that a
+considerable part of the variance present in the global activity
+time-courses is explained by the velocity profile of natural movies. 
+
+
+\begin{figure}[!t] \centerline{
+\includegraphics[width=\textwidth]{part_oi/figures/NatPaper_figure02}
+} 
+\caption[Motion Locking of Average Activity.]{ \protect\input{part_oi/NatPaper_legend_2.tex}} 
+\label{np2}
+\end{figure} 
+
+\subsubsection{Spatio-Temporal Separability of Activity Dynamics}
+
+
+\label{oi_separability}
+
+
+We used SVD analysis in order to evaluate the separability of the
+spatio-temporal dynamics accompanying the temporal modulations reported
+above. A function $f(x,t)$ describing spatio-temporal dynamics is said to
+be separable if it can be decomposed into \newpage the outer product of
+its single dimensional constituents, i.e. $<f(x)>_{t}$ and $<f(t)>_{x}$,
+which represent signals averaged across the temporal or spatial dimension,
+respectively. Thus, under separability hypothesis the effects of spatial
+and temporal dynamics are assumed to interact independently. 
+
+
+SVD transforms the original signal $f(x,t)$ into a weighted sum of
+separable functions $\sum_{i}\gamma_{i}g_{i}(x,t)$ where $\gamma_{i}$
+represents the weight of the component \textit{i} in decreasing order of
+magnitudes. Following SVD transformation the first component, $g_{1}(x,t)$,
+represents the outer product of the average spatial and temporal profiles.
+If the signal is separable, this results in all singular values but the
+first one to be equal to null. Hence the first components totally capture
+the dynamics of the recorded data. 
+
+\begin{figure}[!t] \centerline{
+\includegraphics[width=\textwidth]{part_oi/figures/NatPaper_figure03}
+} \caption[Separability of Spatio-Temporal Activity Dynamics.]
+{ \protect\input{part_oi/NatPaper_legend_3.tex}} 
+\label{np3}
+\end{figure} 
+
+
+
+The signal reconstructed under separability hypothesis (i.e. the first SVD
+component), \newpage for the data shown previously (in Fig. \ref{np1}) is
+depicted in Fig. \ref{np3}A. In order to get a measure of the separability
+of spatio-temporal dynamics, we computed the residuals between the
+predicted activity and the evoked activity; where larger residuals would be
+an indication of less separable activity dynamics. The time-course of the
+prediction error averaged across all experiments is shown in Fig.
+\ref{np3}B (see also color matched triangles). During stimulation with
+natural movies, the residuals (Fig. \ref{np3}B, green traces) reached a
+plateau shortly after the stimulus onset and stayed relatively constant
+thereafter. The error profile under grating stimulation (black curve)
+started with a phasic strong peak and quickly dropped toward values lower
+than the observed for natural stimulation leading to overall smaller error
+values (Fig. \ref{np3}C). The median amplitude of prediction errors was
+lower in the grating conditions and corresponded to less than 8.8 \%
+(7.72/10.5, $p = 0.05$) of the average activity (Fig. \ref{np3}C) this was
+significantly smaller than the natural conditions ($p \textless 10^{-5}$,
+pair-wise bootstrap) which had a mean error of 13 \% (11.1/15.4 \%, $p =
+0.05$). 
+
+The reason for the strong initial peak in residuals can be understood by
+comparing the initial frames of the reconstructed (Fig. \ref{np3}A, third row)
+and evoked data (Fig. \ref{np1}A, third row); one can see that the spatial
+patterning due to cortical columnar organization was much weaker in the
+recorded evoked activity, rather a widespread unspecific activity at frames
+between 300 and 500 ms was clearly evident. The separable prediction
+overestimated the fine-grained columnar structure observed shortly after
+stimulus onset and thus led to higher prediction errors. This change in the
+overall spatial pattern was the main source of non-separability during
+grating conditions. 
+
+We also computed the separability index, a previously used measure
+\citep{escabi2003a} which quantifies the ratio of the first singular value
+to the sum of all singular values; it thus represents the variance
+accounted by the first SVD component and is equal to 1 in case of a
+separable function. Median separability index was 0.81 and 0.64 for
+gratings and naturals respectively ($p \textless 0.01$, pair-wise
+bootstrap).  Accordingly we found that the number of significant singular
+values necessary to describe the activity during grating conditions were
+much smaller. While in average 5 (4.3/5.6, $p = 0.01$) singular values were
+found to be significant, this number was equal to 7.3 (6.4/8.5, $p = 0.01$)
+in the case of naturals. We thus conclude that activity within superficial
+layers is characterized by non-separable spatio-temporal dynamics during
+both natural and grating conditions.
+
+
+\subsubsection{Singular Value Decomposition Unravels Two Overlapping Maps.
+} \label{oi_svdgrat}
+
+
+The result of the SVD analysis applied to another dataset is shown in Fig.
+\ref{svd1}A (upper panel) where the responses evoked by two orthogonal
+drifting gratings are depicted together with the time-course of the
+activity (Fig. \ref{svd1}A bottom panel) which represents the spatially
+averaged response. The SVD was applied to the later part of the evoked
+responses (Fig. \ref{svd1}, shaded area) excluding the fast transient
+onset. For the data presented, we observed 6 different significant singular
+values (\ref{svd1}b, top-left), suggesting inseparable complex
+spatio-temporal activity dynamics in the responses to the moving gratings. 
+
+\begin{SCfigure}[][t]
+\includegraphics[width=0.55\textwidth]{part_oi/figures/svd_figure01}
+\caption[Decomposition of Evoked Cortical Voltage-Sensitive Dye Responses
+to Moving Gratings.] { \protect\input{part_oi/svd_legend01.tex}}
+\label{svd1} \end{SCfigure} 
+
+
+However, the existence of numerous significant SVD components calls into
+question the functional relevance of the dynamics described by these
+components, as the true underlying biological process is unknown.
+Therefore, one cannot directly attribute a biological meaning to the
+individual SVD components or to any combination of a subset thereof. We
+reasoned that if given sets of components describe an underlying biological
+process, their relative contributions across trials should exhibit some
+degree of common variation. By measuring the correlation between the
+contributions of different SVD components across trials, we detected two
+clusters (\ref{svd1}b, correlation matrix). The first cluster contained two
+SVD components (Fig.  1b, left column), each displaying non-oscillatory
+tonic activity profiles with highest singular values (red circles in
+\ref{svd1}b, top-left). The second cluster (\ref{svd1}B, top-row) included
+the remaining 4 different SVD components with strongly oscillating
+activity. Their relative contributions were similar. However their weight
+was two orders of magnitude smaller than the first SVD components,
+suggesting weak contribution to the overall evoked activity.  
+
+Fig. \ref{svd2} illustrates the spatio-temporal dynamics described by these
+two clusters of non-overlapping SVD components.  Reconstruction of activity
+using the first two SVD components displayed the typical patchy structure
+of orientation maps characterized by repeating local domains of peak
+amplitudes (see contours in red panels and compare to \ref{svd1}). Note
+that the gratings evoked the expected orthogonal maps of activation.
+Overlaid on these maps, the oscillatory SVD components revealed cyclic
+waves of activity that propagated either medial-laterally (rightward in
+image frames) or in posterior-anterior direction (downwards) across the
+cortex depending on the gratings' drifting direction (contours in yellow
+panels). These propagating waves were brought about by oscillations with a
+period of $\approx$160 ms. The same patterns were observed in two further
+experiments. Thus, responses to each of the gratings' motion direction
+showed a clear shift over time indicating stimulus locked retinotopic
+propagation. Note that the distance that the wave traveled across the
+cortex in one cycle was nearly similar for both conditions. This is due to
+the fact that the imaged region matches the part of the cortical
+retinotopic map for which cat A18 is approximately isotropic, 5-10 mm below
+the representation of the area centralis. In the anterior part of the
+image, propagation was less pronounced, most likely due to smaller
+amplitudes of oscillatory activity resulting in decreased signal-to-noise
+in this region.  
+
+\begin{sidewaysfigure} 
+\centerline{
+\includegraphics[width=\textwidth]{part_oi/figures/svd_figure02} }
+\caption[Propagation of Activity across Stationary Orientation Maps.]
+{\protect\input{part_oi/svd_legend02.tex}}
+\label{svd2}
+\end{sidewaysfigure} 
+
+Next, to establish the dependency of the observed oscillations on cortical
+location, the data were fitted by a harmonic function with a constant
+period. Fig. \ref{svd3}A depicts the raw activity over time at two selected
+pixel regions (black and gray dots in \ref{svd3}b). We extracted the phase
+of the harmonic functions for each recorded pixel and plotted these values
+topographically (\ref{svd3}b). In order to estimate the speed of the
+propagating waves, we then calculated the change in phase as a function of
+cortical distance (\ref{svd3}c). A value of $\sim$34 mm/s was derived that
+matched the drifting speed of the gratings (34 $^{\circ}$/s) in visual
+space. Consequently, the oscillatory SVD components reflected the shifts of
+the gratings' stripes by coherently propagating waves of activity with high
+spatial and temporal accuracy.
+
+
+\begin{figure}[!htb] 
+\centerline{
+\includegraphics[width=\textwidth]{part_oi/figures/svd_figure03}
+} \caption[Propagation Speed of Cortical Activity.] {
+\protect\input{part_oi/svd_legend03.tex}} \label{svd3}\end{figure} 
+
+
+

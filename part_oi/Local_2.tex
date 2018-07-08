@@ -1,0 +1,72 @@
+	\subsection{Activated Area Analysis} 
+ 
+\label{oi_local_area}
+
+In this part, I am interested in answering the question of how many pixels
+exceeds a given treshold of activity in different conditions.  This is
+important because even if we have no effect on the activity levels, there
+could be more pixels activated during double conditions than in the sum of
+the mono conditions due to a larger area of activation.  
+
+
+
+In this part I am simply thresholding the activity levels after
+z-transforming the data. I use as threshold a z-value of 2 with the
+condition that a two consecutive samples are above the trehsold to be
+counted as significantly active. As a consequence I map the continous
+activity values to a binary activity levels, 1 meaning above the threshold
+and 0 below the threshold. After having transformed the data to a logical
+array I sum over the temporal dimension and divide it my the total number
+of samples so that I get an estimate of the percentage a pixel was above
+the threshold value.
+
+
+in figure \ref{meta} for each of the experiments, 4 subplots are presented.
+each of the subplots compares the double conditions (on the left) to mono
+conditions (on the right). The color codes for the percentage of the
+activated samples a given pixel had to the total number of samples present
+in the interval of iterest. The interval of interest start from the
+stimulus onset and goes up to the 1 second after stimulus onset. It
+completely ignores the second half of the presentation.
+
+
+
+First of all, in only few of the experiments the percentage values reaches
+high values. in experiments 4.1, 5.1, 5.2 and 6.1 we have numbers reaching
+up to 50 percents. In other experiments these values are smaller. With the
+exception of very few subplots the number of activated pixels is always
+example aree worth commenting on. for example the first movie of the
+experiment 5.2, you can see that in the sums of the mono conditions you do
+not see the top blob meaning that when the stimulus was shown individually
+it did not activate the cortex in a noticible way. However you see that it
+is present in the double condition meaning that the presence of the
+secondary blob below it has an effect on the processing of the first blob.
+Second example worth noting is the second movie of experiment 4.1 together
+with the first movie of the experiment 6.1 where you see the region between
+two blobs gets also activated.
+
+\begin{figure}[!hp] \centerline{
+\label{loc_countmap}\includegraphics[width=4cm]{part_oi/figures/Local_figure03b.png}}
+\caption{} \end{figure}
+
+Another way of looking at those data would be to sum the two mono
+conditions and compare it directly to the double conditions. This is done
+in figure \ref{meta2}. Here what we see is that in the big majority of the
+experiments, the double condition maps have always higher values than the
+sum of the mono condition maps. What is also visible in these figures is
+that, whenever the data has the perfect shape of two blobs of activity
+during double condition spreads to the regions which are in between two
+blobs of activity. This is best seen in experiments 4.1 and 6.1 although
+counter examples can also be seen in for example the second movie of 6.1
+
+
+The easy way to visualize this data in a summarizing way is to take the
+average of the percentile maps separetely for double and sums of mono
+conditions and plot them against each other. This is shown in figure
+\ref{meta_sum} in a logaritmic scale. Most of the points lye below the
+diagonal meaning that the number of samples activated above the threshold
+during double conditions is bigger than the sum of the samples during two
+mono conditions. The leftmost point is coming from the experiment 3.1's one
+of the movies where the visual stim does not activate any how the cortex,
+therefore it is simply noise and can be deleted.
+

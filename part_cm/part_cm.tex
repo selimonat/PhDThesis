@@ -1,0 +1,796 @@
+
+\section{Context} 
+
+In everyday life, our brains decide about the relevance of huge amounts of
+sensory input. Further complicating this situation, the input is
+distributed over different modalities. This raises the question of how
+different sources of information interact for the control of overt
+attention during free exploration of the environment under natural
+conditions.
+
+Previous Chapters dealt with the question of how the presence of different
+sources of information are integrated at the cortical level. In the first
+Chapter we were interested in the integration of binocular information. The
+second Chapter dealt with the question of how cortical connectivity
+underpins the integration of spatially separated visual information. In the
+third Chapter we extended this question to different modalities and
+investigated how signals originating from different modalities are
+integrated in the case of dynamic input. During these Chapters we ignored
+to a large extent the behavioral component of these underlying neuronal
+processes. In this Chapter we investigate how behavior is influenced by the
+presence of different sources of input. The integration we observed at the
+cortical level leaves open the question of how the behavior is influenced.
+In the behavioral level, different modalities may work independently or
+interact to determine the resulting motor output. 
+
+
+In order to investigate this question, we focused on human overt attention
+by means of eye tracking methodology. To collect information from the
+environment, humans extensively use their visual system by deploying their
+attentional resources to different regions of a scene. During the
+exploration of a scene, fast eye movements called saccades intermingling
+with relatively stable fixation periods form the basis of this process. By
+measuring the density of the fixated points, one can obtain an empirical
+estimate of the saliency of different regions on an image. Such empirical
+saliency maps can later be used in order to evaluate different integration
+mechanisms.
+
+We presented natural images and lateralized natural sounds in a variety of
+conditions, and measured the eye movements of human subjects. We show that,
+in multimodal conditions, fixation probabilities increase on the side of
+the image where the sound originates showing that, at a coarser scale,
+lateralized auditory stimulation topographically increases the salience of
+the visual field. However, this shift of attention is specific because the
+probability of fixation of a given location on the side of the sound scales
+with the saliency of the visual stimulus, meaning that the selection of
+fixation points during multimodal conditions is dependent on the saliencies
+of both auditory and visual stimuli. Further analysis shows that a linear
+combination of both unimodal saliencies provides a good model for this
+integration process, which is optimal according to information theoretic
+criteria. 
+
+Our results support a functional joint saliency map, which integrates
+different unimodal saliencies before any decision is taken about the
+subsequent fixation point. These results provide guidelines for the
+performance and architecture of any model of overt attention that deals
+with more than one modality. 
+
+\section{Introduction}
+
+How are different sources of information integrated in the brain while we
+overtly explore natural multimodal scenes? It is well established that the
+speed and accuracy of eye movements in performance tasks improve
+significantly with congruent multimodal stimulation \citep{corneil1996a,
+corneil2002a, arndt2003a}. This supports the claim that sensory evidence is
+integrated before a motor response. Indeed, recent findings indicate that
+areas in the brain may interact in many different ways \citep{driver2000a,
+macaluso2005a}. The convergence of unimodal information creates multimodal
+functionality \citep{meredith1986a, beauchamp2004a} even at low-level areas
+traditionally conceived as unimodal \citep{macaluso2000a, calvert1997a,
+ghazanfar2005a}; evidence is also currently mounting for early feedforward
+convergence of unimodal signals \citep{molholm2002a, fu2003a, foxe2005a,
+kayser2005b}. Little is known, however, about integration processes under
+the relevant operational \textemdash i.e. natural \textemdash conditions.
+Most importantly, we lack a formal description of the integration process
+during overt attention. It is important to develop formalizations using
+behavioral data as it reflects the final outcome of the processes within
+the CNS. \nomenclature{CNS}{Central Nervous System} 
+
+Current models of overt attention are based on the concept of a saliency
+map: A given stimulus is first separated into different feature channels;
+after the local contrast within each feature space is computed, these
+channels are then combined, possibly incorporating task-specific biases
+\citep{koch1985a, itti2001a, parkhurst2002a, peters2005a}. The selection of
+the next fixation point from a saliency map involves a strong
+non-linearity. This is typically implemented as a winner-takes-all
+mechanism. The timing of this non-linearity with respect to the integration
+of multiple feature channels crucially influences both the performance and
+structure of the resulting system. In principle, three idealized multimodal
+integration schemes can be considered. 
+
+\textit{Early interaction} \textemdash The information from different
+modalities could be integrated early, before the computation of a saliency
+measure and the selection of a fixation point. Indeed, many studies provide
+evidence for an interaction between signals in early sensory cortices
+\citep{calvert2000a, kayser2005b}. An integration in the form of
+interaction may be the result of modulatory effects of extra-modal signals
+during computation of saliency maps within a given modality. Or
+alternatively such an interaction may be caused by multiplicative
+integration of unimodal saliencies after the saliency maps for each
+modality are computed. The selection of the most salient point after
+crossmodal interaction has taken place imposes an expansive nonlinearity.
+Consequently, sensory signals from different modalities should interact
+supralinearly for the control of gaze movements. 
+
+\textit{Linear integration} \textemdash Alternatively, saliency could be
+computed separately for different modalities and subsequently be combined
+linearly before fixation selection. Recent research shows that the bulk of
+neuronal operation underlying multisensory integration in superior
+colliculus can be well described by a summation of unimodal channels
+\citep{stanford2005a}. Within this scheme multimodal saliency would be the
+result of the linear combination of unimodal saliencies. From an
+information-theoretic perspective, this type of linear summation is
+optimal, as is the resulting multimodal map, in the sense that the final
+information gain is equal to the sums of the unimodal information gains. 
+
+\textit{Late combination} \textemdash No true integration between
+modalities occurs. Instead, overt behavior results from competition between
+candidate fixation points in the independent unimodal saliency maps. The
+implementation of such a max operator results in a sub-linear integration
+of the unimodal saliency maps. Although improvements in saccade latencies
+and fixation accuracies in (non-natural) multimodal stimulus conditions
+have been used to support the counter-claim that crossmodal integration
+does take place \citep{corneil2002a, arndt2003a}, this hypothesis still
+warrants investigation under natural free-viewing conditions.
+
+We presented human subjects with lateralized natural sounds and natural
+images in a variety of conditions and tracked their eye movements as a
+measure of overt attentional allocation. These measurements were used to
+compute empirically determined saliency maps, thus allowing us to
+investigate the above hypotheses. 
+
+\section{Materials \& Methods} 
+
+\label{part_cm_mm} 
+\input{part_cm/mat.tex}
+
+
+\section{Results}
+
+First, we analyze the effect of the lateralized auditory stimuli on the
+fixation behavior of subjects during the study of natural images
+Fig. \ref{fig1}A. Second, we characterize the temporal interval during which the
+influence of auditory stimuli is strongest. Third, we demonstrate the
+specific interaction of visual and auditory information. And finally, we
+address the predictions derived from the three hypotheses of crossmodal
+interaction stated above. 
+
+
+\subsection{Subjects' Gaze Is Biased towards the Sound Location.} 
+
+
+In Fig. \ref{fig2}, the spatial distribution of fixation points
+averaged over images in all 5 conditions is shown for 2 subjects. In the
+visual condition (V), the fixation density covers a large area and is
+equally distributed over the left and right half of the screen, with
+neither of the subjects showing a consistent horizontal bias. The center of
+gravity ($\mu_{V}$) is located at 505 and 541 pixels respectively (white
+crosses) for these two subjects, in the close vicinity of the center of the
+screen (located at 512 pixels). In the multimodal conditions (AVL and AVR),
+both subjects show a change in their fixation behavior. The horizontal
+distance between $\mu_{AVL}$ and $\mu_{AVR}$ is 221 and 90 pixels for the
+two subjects respectively. Thus, in these two subjects, combined visual and
+auditory stimulation introduces a robust bias of fixation towards the side
+of sound presentation. 
+
+Auditory unimodal conditions (AL and AR) induce different patterns of
+fixation (Fig. \ref{fig2} right hand columns, note different scales of color
+bars). First, despite lateralized sound presentation, a non-negligible
+proportion of fixations are located close to the center. Nevertheless the
+lateralized sound stimulus induces a shift toward the sound location, even
+in the absence of any structured, meaningful visual stimulation. In most
+cases, the shift had an upwards component. Furthermore, the off-center
+fixations are less homogeneously distributed and their distribution does not
+qualitatively resemble the distribution of fixations in the visual
+condition. 
+
+\begin{figure}[!htbp] 
+\centerline{ \includegraphics[width=\textwidth]{./part_cm/figures/figure02.png}} 
+
+\caption[Bias of Subjects' Gaze towards the Sound Location.] {\textbf{Bias
+of Subjects' Gaze towards the Sound Location.} \textbf{(A, B)}
+$p_{s,c}(x,y)$ for two subjects in each condition. Each colorbar shows the
+scale of the pdf images located to its left; notice the differences in
+scale. White crosses denote the center of gravity of a given pdf along the
+horizontal axis. These pdfs were generated by convolving the original pdfs
+with a Gaussian kernel ($\sigma = 0.6^{\circ}$).} \label{fig2} \end{figure}
+
+The complete statistics of all subjects and images are shown in Fig. \ref{fig3}.
+The distribution of center of gravity shifts ($\mu_{AVL}-\mu_{V}$ and
+$\mu_{AVR}-\mu_{V}$) for all subjects over all images is skewed
+(Fig. \ref{fig3}). In the majority of subjects, we observe a moderate effect of
+lateralized sound presentation. A small group of subjects show only a small
+influence; one subject an extreme effect. The medians of the two
+distributions are both significantly different from zero (sign test, $p
+\textgreater 10^{-5}$). Crosses indicate the positions of the two example
+subjects described above. They represent the $70^{th}$ and $90^{th}$
+percentiles of the distributions. Hence, the complete statistics support
+the observations reported for the two subjects above. 
+
+An analysis of the influence of auditory stimuli on the selection of
+fixation points in individual images (over all subjects) is shown in
+Fig. \ref{fig3}B. We see that for all visual stimuli the shift in average
+horizontal position of fixation points is towards the sound location
+(t-test, $p \textgreater 10^{-5}$). In both of the panels A and B, the
+distributions flank both sides of zero, with mean values of -37 and 36
+pixels for $\mu_{AVL}-\mu_{V}$ and $\mu_{AVR}-\mu_{V}$ respectively. Thus,
+auditory stimulation introduces a robust bias of fixation towards the side
+of sound presentation for all natural visual stimuli investigated. 
+
+\begin{figure}[!htbp] \centerline{ \includegraphics[width=0.5\textwidth]{./part_cm/figures/figure03.png}}
+\caption[Distribution of Fixation Density Shifts towards Sound Location.]{
+\textbf{Distribution of Fixation Density Shifts towards Sound Location.}
+\textbf{(A)} Centers of gravity ($\mu_{c}$ for condition \textit{c}) were
+calculated for the fixation pdfs of each subject averaged over all images
+for multimodal conditions (AVR and AVL) and unimodal visual condition (V).
+The distributions of distances between multimodal and unimodal centers of
+gravity are shown. The averages are marked with arrowheads and equal -44
+pixels for $\mu_{AVL}-\mu_{V}$ (\textit{dark gray}) and 42 pixels for
+$\mu_{AVR}-\mu_{V}$ (\textit{light gray}). The two distributions are
+statistically different (sign test, $p \textless 10^{-5}$). The plus signs
+mark the effect size for the subjects depicted in Fig. \ref{fig2}.
+\textbf{(B)} Shows the same measurement, this time calculated for fixation
+pdfs of each image averaged over all subjects. The two distributions are
+statistically different (t-test, $p \textless 10^{-5}$). The average values
+of the distributions are same as in (A). However, the variance of the
+shifts of gravity centers is bigger on subject pdfs compared to the image
+pdfs therefore resulting in different scales on the abscissa.}
+\label{fig3}\end{figure}
+
+\subsection{Effect is More Prominent in the First Half of Presentation}
+
+Next we analyze the temporal evolution of the above-described horizontal
+effect of the auditory stimulus. Fig. \ref{fig4} depicts the difference between
+the spatio-temporal fixation probability density functions (pdf) for AVR
+and V, AVL and V, and AL and AR conditions. Comparing visual and multimodal
+conditions shortly after stimulus onset, (Fig. \ref{fig4}A, B lower plots) we
+observe a rapid shift in fixation density on the side of the auditory
+stimulus, which is sustained for the presentation period. This increase in
+fixation density is realized at the expense of fixations in the central
+region, and less so at the expense of fixations on the contra-lateral side.
+This can be seen by comparing the marginal distributions (averaged over
+time) originating from the pdfs used to calculate \newpage the difference
+(Fig. \ref{fig4}A, B upper plots). The intervals of time for which the
+differences reach significance level (two-sided KS-test, p=0.001) are
+indicated by vertical black bars. Comparing conditions AL and AR
+(Fig. \ref{fig4} right panel), we observe an increase in fixation probability on
+the half of the horizontal axis corresponding to the side of the sound
+location. This difference decays only slowly over time. 
+
+\begin{figure}[!htbp] \centerline{ \includegraphics[width=\textwidth]{./part_cm/figures/figure04.png}}
+\caption[Effect of Localized Auditory Stimulus is More Prominent in the
+First Half of Presentation.]{ \textbf{Effect of Localized Auditory Stimulus
+is More Prominent in the First Half of Presentation.} The uppermost plots
+show two marginal probability distributions for the following pairs of
+conditions: \textbf{(A)} AVR and V, (\textbf{B)} AVL and V, (\textbf{C)} AR
+and AL, \textit{dashed} and \textit{solid} lines respectively. The lower
+plots depict the difference between the spatio-temporal pdfs of the same
+pairs of conditions. Contour lines are drawn at zero values. Along the
+times axis, the \textit{black horizontal} lines mark the regions where the
+difference between the two pdfs is significant (two-sided KS-test,
+$\alpha=0.001$). The \textit{vertical dashed} line limits the temporal
+interval of interest, which is used for further analysis. The pdfs were
+generated using a Gaussian kernel ($\sigma = 0.4^{\circ}$ and 70 ms). }
+\label{fig4}\end{figure}
+
+
+
+\subsection{Specific Interaction of Visual and Auditory Information}
+
+As a next step we investigate the integration of auditory and visual
+information in the temporal interval of interest. The first column of
+Fig. \ref{fig5} depicts examples of the natural \newpage images used in the experiment.
+The other columns show the image pdfs computed over all subjects in
+conditions V, AVL and AVR. As these pdfs were computed over many subjects'
+fixations, they constitute empirically determined saliency maps. For each
+image, we observe a characteristic distribution of salient regions, i.e.
+regions with high fixation probabilities. It is important to note that the
+fixation densities are highly unevenly distributed, suggesting a similarity
+between subjects' behaviors. We computed the correlation coefficients
+between image pdfs generated from two subsets of 5 randomly selected
+subjects (repeating the same analysis 300 times). For all three conditions
+the distribution of coefficients over all images and repetitions peaked at
+around 0.6. This suggests that different subjects had similar behaviors for
+scrutinizing the image during the temporal interval of interest (240 - 2640
+ms). It is not clear whether this was the result of the specific image
+content or shared search strategies between subjects.
+
+\begin{figure}[!htb] \centerline{ \includegraphics[width=\textwidth]{./part_cm/figures/figure05.png}} 
+
+\caption[Specific Interaction of Visual and Auditory
+Information.]{\textbf{Specific Interaction of Visual and Auditory
+Information.} Fixation pdfs,$p_{i,c}(x,y)$, for a given image \textit{i}
+and conditions \textit{c} (V, AVL and AVR) are shown, along with the
+corresponding natural image \textit{i}. Each pdf constitutes an empirically
+determined saliency map. The saliency maps for each image are shown along
+rows, for each condition along columns. \textit{White crosses} in each
+panel depict the centers of gravity of the pdfs. In multimodal conditions,
+the center of gravity shifts toward the side of auditory stimulation.
+Interestingly however, moving across each row we see that the salient spots
+for each image are conserved across conditions as shown by the high
+$r\textsuperscript{2}$ and low KL divergence values (right of colorbar).
+Fixation pdfs are computed inside the temporal interval of interest and
+convolved with a Gaussian kernel ($\sigma = 0.6^{\circ}$). }
+
+\label{fig5}
+\end{figure}
+
+The two right-hand columns show the respective distributions obtained in
+multimodal conditions. First, as noted earlier, the lateralized stimulus
+causes the center of gravity to shift along the horizontal axis
+(Fig. \ref{fig5}, white crosses). Importantly, the spatial distributions of the
+spots are alike in different conditions, but differ across images. The
+regions with high fixation probability in one multimodal condition
+(Fig. \ref{fig5}) still effectively attract gaze when the side of auditory
+stimulation is switched, as well as in the unimodal condition.
+
+This observation is quantified by measuring the KL divergence and
+$r\textsuperscript{2}$ statistic between saliency maps (such as those in
+Fig. \ref{fig5}) belonging to unimodal and cross-modal conditions. For the
+examples shown in Fig. \ref{fig5} we obtain a KL-divergence of 0.88, 1.32,
+0.94, 1.02, 1.09 bits between V and AVL conditions and 1.38, 1.79, 0.87,
+1.09, 0.79 bits between V and AVR. $r\textsuperscript{2}$ statistics range
+from 0.4 to 0.97, indicating that a substantial part of the total variance
+of the multimodal conditions is explained by the distribution of fixation
+points in the unimodal visual condition. 
+
+The distribution of KL-divergence values obtained from the complete dataset
+(32 images times 2 auditory stimulus locations) is presented in \ref{fig6}.
+The more similar the two pdfs are, the closer the KL-divergence values get
+to zero; zero being the lower limit in the case of identity. This
+distribution is centered at $1.08 \pm 0.03$ bits (mean $\pm$SEM). This is
+significantly different to the mean of the control distribution ($3.45 \pm
+0.02$ bits), which was created using 3200 randomly selected non-matched
+V-AV pairs. The control distribution provides the upper limit for
+KL-divergence values given our data set. Hence, given the distribution of
+fixation points on an image in the visual condition, the amount of
+information necessary to describe the distribution of fixation points on
+this image in the multimodal conditions is about one third of the
+information necessary to describe the difference in fixation points on
+different images in these conditions. 
+
+\begin{SCfigure}[][!htb]
+\includegraphics[width=0.5\textwidth]{./part_cm/figures/figure06.png} 
+\caption[Auditory and Visual Information are Integrated.]{ \textbf{Auditory
+and Visual Information are Integrated.} The distributions of KL divergence
+\textbf{(A)} and $r\textsuperscript{2}$ \textbf{(B)} values for control
+(textit{dark gray}) and actual (\textit{light gray}) conditions are shown.
+The actual distributions are obtained by comparing 64 pairs of multimodal
+(AVR and AVL) and unimodal (V) fixation pdfs. Control distributions are
+created by computing the same statistics on randomly-paired non-matched
+multimodal and unimodal pdfs (n = 3200). The measurements are directly
+obtained from pdfs shown in Fig. \ref{fig5}. \textbf{(C)} The logarithm of
+the ratios of actual and control luminance contrast values are presented as
+a function of time. Almost all values lie above the identity line. This
+effect is stable over the time of presentation and for different
+conditions. The \textit{gray shaded} area shows the temporal region of
+interest.} \label{fig6}\end{SCfigure}
+
+These results are supported by a more conventional linear measure. Fig.
+\ref{fig6}B shows the distribution of actual $r\textsuperscript{2}$ values
+calculated between image pdfs from multimodal and unimodal conditions
+originating from the same image. The distribution is centered at
+$0.71\pm0.13$ and the difference between this measure and a control
+$r\textsuperscript{2}$ measure calculated from shuffled image pairs is
+highly significant (t-test, $p \textgreater 10^{-5}$). This implies that
+for the majority of images, the unimodal fixation pdfs account for more
+than half of the variance in the observed distribution of fixation points
+in multimodal conditions. Hence, the bias of gaze movements towards the
+side of the auditory stimulus largely conserves the characteristics of the
+visual saliency distribution. Therefore the behavior of the subjects under
+the simultaneous presence of auditory and visual stimuli is an integration
+of both modalities. 
+
+As a complementary approach, we investigate the effect of multimodal
+stimuli on the relationship between visual stimulus properties and the
+selection of fixation points. Several previous studies investigating human
+eye movements under natural conditions describe a systematic increase of
+luminance contrast at fixation points \citep{reinagel1999a, tatler2005a}.
+If the auditory stimuli cause an orientation behavior independent of the
+visual stimuli, then we can expect the luminance contrast at fixation
+points to be reduced. If a true integration occurs, we expect this
+correlation between luminance contrast and probability of fixation to be
+maintained under multimodal stimulus conditions. Fig. \ref{fig6}C shows the
+ratio of luminance contrast at actual fixations and control locations for
+the unimodal and both multimodal conditions. Nearly all values
+($\log\frac{actual}{control}$) are greater than zero, indicating a positive
+correlation between fixation points and luminance contrast. Moreover, the
+effect of contrast is constant over the entire presentation, with no
+systematic difference during the temporal interval of interest
+(Fig. \ref{fig6}C, gray area). Furthermore, the three conditions do not differ
+significantly in the size of effect. This holds for temporal bin sizes
+ranging from 100 to 1000 ms (data not shown). Therefore, we can conclude
+that the additional presence of a lateralized auditory stimulus does not
+reduce the correlation between the subjects' fixation points and luminance
+contrast. 
+
+\subsection{The Integration Is Linear}
+
+To quantitatively characterize the integration of unimodal saliencies, we
+perform a multiple regression analysis. The experiments involved two
+unimodal auditory conditions (AL and AR), and two corresponding multimodal
+conditions (AVL and AVR). In order to simplify subsequent discussion, we
+will use a more general notation of A and AV for unimodal auditory and
+multimodal conditions respectively. We model the multimodal (AV)
+distributions of fixation points by means of a linear combination of
+unimodal (A and V) distributions and the normalized (to unit integral)
+product of unimodal distributions (A \texttimes V) as indicated in equation
+(\ref{cm_eq7}). Here we assume that the effect of a multiplicative
+integration of unimodal saliencies is well approximated by a simple
+multiplication of their probability distributions. The fits were computed
+separately for left and right conditions, and the results were pooled for
+visualization purposes. The distribution of 64 coefficients for each of the
+regressors is shown in Fig. \ref{fig7}. On average, over all images, the
+contribution of unimodal visual saliency is largest, with a mean at $0.75
+\pm0.15$ (mean $\pm$SD; Fig. \ref{fig7}, circles). The contribution of
+unimodal auditory saliency is smaller ($0.16 \pm0.12$). The coefficient of
+the cross-product interaction term is, however, slightly negative with mean
+$0.05 \pm0.10$. We repeated the same analysis for a subset of subjects
+(n=14, 40 \%) for whom the lateralized auditory stimulus had the strongest
+effect on fixations in terms of gravity center shift in the unimodal
+auditory conditions. In these subjects, the contribution of auditory
+coefficients was increased ($0.32 \pm0.17$) at the expense of the visual
+ones ($0.53 \pm20$), without any apparent effect on the interaction term
+($-0.06 \pm0.11$, t-test, $p = 0.59$) (Fig. \ref{fig7}, crosses). In both
+cases, the intercept was very close but still significantly different from
+zero. These results suggest that biggest contributions to the multimodal
+pdfs originate from the linear combinations of the unimodal pdfs. 
+
+\begin{SCfigure}[][!htb] 
+\includegraphics[width=0.5\textwidth]{./part_cm/figures/figure07.png}
+\caption[Prominent Contribution of Unimodal Saliencies.]{\textbf{Prominent
+Contribution of Unimodal Saliencies.} This figure shows the distributions
+of the parameters of equation Fig. \ref{cm_eq7} (inset), computed using multiple
+regression analysis. Image pdfs used for the regression analysis were
+computed either by using all subjects (n = 35) or by selecting a subset of
+subjects (n = 14) for whom the lateralized auditory stimulus had the
+strongest effect on fixations, quantified in terms of gravity center shift.
+The best fits between image pdfs from conditions AV and V, A and A
+\texttimes V were calculated for each of the 32 images, in left and right
+conditions, yielding 64 fits for each parameter. The distributions of the
+coefficients resulting from the regression analysis using all subjects are
+shown. \textit{Circles} denote the mean of each distribution of each
+coefficient. All means are significantly different from zero (t-test, p
+\textless $10^{-3}$). The average value of the visual coefficients
+$\beta_{1} (0.75 \pm0.15 ;\pm$SD) is greater than the average of the
+auditory coefficients $\beta_{2} (0.16 \pm0.12)$, and these unimodal
+coefficient averages are both greater than that of the multimodal
+coefficients $\beta_{3} (-0.05 \pm0.1)$. Repeating the same analysis using
+the subset of auditorily-driven subjects results in higher average auditory
+coefficients $(0.32 \pm0.17)$ and lower visual coefficients $(0.53
+\pm0.20)$, while the interaction term does not change significantly $(-0.06
+\pm0.11, t-test $p = 0.59$)$. \textit{Crosses} indicate the means of each
+and every distribution for this subset of subjects. } \label{fig7}
+\end{SCfigure}
+
+In a subsequent analysis, we carried out the regression analysis using a
+different combination of dependent variables and evaluated how the
+introduction of an additional dependent variable increased the explained
+variance. Using only unimodal visual pdfs as one regressor, we obtained
+$r\textsuperscript{2}$ values having a median value of 0.72 over all images
+\textemdash as expected from the previous section. Additionally including
+unimodal auditory pdfs increased the median $r\textsuperscript{2}$ only
+slightly, by 3\%. Repeating this analysis using only the subset of subjects
+showing the strongest auditory lateralization effect, we obtained a median
+value of 0.36 with the sole visual regressor. The subsequent introduction
+of the unimodal auditory pdfs as second dependent variable increased the
+goodness of fit by 21\% over all images. Further including the cross-
+interaction term as the third dependent variable, the goodness of fit
+increased slightly, by 5\%. Therefore we can argue that mechanism linearly
+combining the unimodal saliencies can well account for the observed
+behavior in the multimodal conditions.
+
+
+As a model-free approach, we compute integration plots using saliencies
+obtained from different conditions. It should be noted that no assumptions
+are made regarding the calculation of the saliency; that is, these saliency
+values are empirically determined by the gaze locations of many subjects.
+Integration plots are constructed by plotting the saliency of a given
+spatial location in the multimodal pdfs as a function of unimodal
+saliencies of the same spatial location. The specific distribution within
+this three dimensional space describes the integration process. In
+Fig. \ref{fig8} A, B and C, the height of each surface depicts the corresponding
+salience of the same location during the multimodal condition as a function
+of the saliency of the same location in unimodal conditions. The three
+hypotheses about the integration of auditory and visual information make
+different predictions (see introduction): Early interaction leads to a
+facilitatory effect and an expansive non-linearity (Fig. \ref{fig8}). The
+landscape predicted in the case of linear integration is planar and shown
+in Fig. \ref{fig8}. Late combination gives rise to a compressive non-linearity
+(Fig. \ref{fig8}C). Applying this approach to our complete dataset leads to a
+highly non-uniform distribution of observed unimodal saliencies, when
+considered in terms of their frequency of occurrence. In Fig. \ref{fig8}D, the
+count matrix of joint occurrences of unimodal saliencies is presented; the
+surface is very sparsely filled at regions with high values of salience and
+practically no point is present at regions where both unimodal saliencies
+are high (top right region of Fig. \ref{fig8}D). Statistically reliable
+statements about the data within these regions are thus not possible.
+Within this space, we defined a region of interest depicted as a rectangle
+in Fig. \ref{fig8}D; this portion of the space contains 85\% of the total number
+of samples. Inside this region, we bin the data using a 10 \texttimes 10
+grid and calculate the expected value (Fig. \ref{fig8}) and an error estimate
+(variance) for each bin. 
+
+\begin{SCfigure}[][!htb]
+\includegraphics[width=0.65\textwidth]{./part_cm/figures/figure08.png} 
+
+\caption[The Integration is Linear.]{ \textbf{The Integration is Linear.}
+\textbf{(A, B, C)} Three hypothetical frameworks for integration are
+presented schematically as integration plots. The X and Y axes represent
+the unimodal saliencies associated with a given location on the visual
+field. The saliency of the same location in the multimodal condition is
+color-coded, i.e. each pixel represents the saliency of a given point in
+multimodal condition (p(AV)) as a function of the saliency of the same
+point in unimodal conditions (p(A), p(V)). The specific distribution of the
+points generating this landscape unravels the integration process. Please
+note that the inherent topology of underlying images is no longer contained
+in integration plots. The three integration schemes mentioned in the text
+(see Introduction) predict different probability landscapes. If the
+unimodal probabilities were interacting this would generate a landscape
+with an expansive non-linearity \textbf{(A)}; however if the multimodal
+saliencies were combined linearly, the resulting landscape is expected to
+be planar \textbf{(B)}. The absence of an integration in a scenario where
+the maximum of the unimodal saliencies determines the multimodal saliency
+results in a compressive non-linearity \textbf{(C)}. \textbf{(D)} Joint
+count matrix obtained by using all subjects. All pairs of unimodal
+saliencies are plotted against each other. Grayscale level logarithmically
+codes for the number of occurrences inside each bin. The marked rectangular
+region contains 85\% of all points. \textbf{(E)} Integration plot
+calculated for points lying in the rectangular region of (D) using a 10
+\texttimes 10 binning. The color codes for the saliency in the multimodal
+condition as in (A-C). Image pdfs used to compute this plot are obtained by
+using all subjects. \textbf{(F)} Same as in (E), however only subjects with
+the strongest auditory response are used. \textbf{(G)} Integration plot,
+calculated using difference maps (see Results for details).}
+\label{fig8}\end{SCfigure}
+
+The relationship between these unimodal and multimodal saliencies is
+further analyzed using a weighted regression analysis with unimodal
+saliencies as dependent variables. This yielded $0.54 \pm0.04$ ($\pm$ 95
+\%CI) and $0.59 \pm0.09$ for the linear contribution of visual and auditory
+saliency respectively. Both coefficients were highly significant (t-test, p
+\textless $10^{-6}$)except for the intercept coefficient (t-test, $p =
+0.23$). $r\textsuperscript{2}$ is equal to 0.89 suggesting a good fit. We
+repeated the same analysis with the interaction term included after
+normalizing each regressor with its geometric mean in order to have the
+same exponent range, thus permitting an evaluation of the contribution of
+different regressors to the multimodal saliency. This yielded $0.57
+\pm0.08$, $0.29 \pm0.08$ and $0.029 \pm0.05$ for visual, auditory and
+interaction terms respectively. The linear contributions of unimodal
+saliencies were highly significant whereas the intercept and the
+interaction terms were not statistically different to zero.
+
+Using such large bins increases the statistical power within each bin at
+the expense of detailed structure. We therefore conducted the same analysis
+using up to 50 bins covering the same region of interest. The
+$r\textsuperscript{2}$ of the fitted data at this resolution was 0.87,
+ensuring that the fit was still reasonably good. The values of coefficients
+were practically the same, and the only noticeable change during the
+incremental increase of the resolution was that the interaction term
+reached the significance level ($p \textgreater 0.05$) at the resolution of
+20 \texttimes 20, thus demonstrating a slight facilitatory effect. These
+results support the conclusion that linear integration is the dominating
+factor in crossmodal integration during overt attention, with an additional
+small facilitatory component. 
+
+The above analysis is influenced by a particular property of the auditory
+saliency maps. Many fixation densities in the AL and AR conditions are
+located at the center of the screen (see Fig. \ref{fig4}C). We tried to avoid
+this problem in two different ways. In the first method, we performed the
+same analysis on the subset of subjects mentioned earlier who were most
+influenced by the lateralized auditory stimulus, thus minimizing the
+central bias. Restricting the analysis allowed us to define a new region of
+interest, which included 90\% of the total data points (Fig. \ref{fig8}E) and
+discarded only those points that were very sparsely distributed in high
+saliency regions. $r\textsuperscript{2}$ values varied within the range of
+0.81 and 0.9, decreasing with higher binning resolutions. As above,
+increasing the number of bins revealed a slight but significant
+facilitatory effect. Within this subset of subjects, the contribution of
+auditory saliency ($0.36 \pm0.08$) was again shown to increase at the
+expense of the visual contribution ($0.50 \pm0.08$). Removing the
+interaction term from the regression analysis caused a maximum drop of only
+2.5\% in the goodness of fit for all tested bin resolutions within this
+subset of subjects. 
+
+In the second method used to remove the central bias artifact of unimodal
+auditory pdfs, we took the differences between the left and right auditory
+conditions, i.e. subtracted the two empirically determined auditory
+saliency maps to yield difference maps. In each case, the saliency map for
+the condition where the sound was presented contra-laterally was subtracted
+from the saliency map of the congruent side (i.e. AL \textendash AR for
+auditory stimulus presented on the left, AR \textendash AL for auditory
+stimulation from the right). These newly generated maps are well-behaved
+and allow the analysis of a larger region of saliency space (90\% of total
+samples). The above analysis was repeated using the difference maps, and is
+shown in Fig. \ref{fig8}G. It should be noted that the positive values on the
+y-axis are the data points originating from the region of the screen from
+which the sound emanates, during the temporal interval of interest. We
+performed separate regression analyses for these two halves of the
+resulting interaction map. In the lower part ($p(A) \textgreater 0$), the
+best predictor was the visual saliencies, as can be seen from the contour
+lines. In the upper part ( $p(A) \textless 0$), a linear additive model
+incorporating auditory and visual saliencies well approximates the surface.
+The results derived in an analysis of the effects of different bin sizes
+were comparable to the above results; that is, a model combining linearly
+unimodal saliencies along with a slight facilitatory component was
+sufficient to explain a major extent of the observed data. 
+
+We repeated the last analysis with image pdfs obtained with varying degrees
+of smoothing. Decreasing the width of the convolution kernel systematically
+reduced the explained variance of the fits on integration plots built
+within probability ranges containing comparable amount of points. In a
+large interval of tested parameters (0.4$^{\circ}$ \textendash
+0.8$^{\circ}$), the main result was conserved i.e. the saliency surface
+was, to a large extent, captured by a linear combination of unimodal
+saliencies, with a slight multiplicative effect also evident. 
+
+\section{Discussion}
+
+In this study, we investigated the nature of the multimodal integration
+during overt attention under natural conditions. We first showed that
+humans do orient their overt attention towards the part of the scene where
+the sound originates. This effect lasted for the entire period of the
+presentation of the stimuli, but had a stronger bias during the first half
+of presentation. More interestingly, this shift was far from a simple
+orientation behavior \textemdash overt behavior during multimodal stimuli
+was found to be dependent on the saliency of both visual and auditory
+unimodal stimuli. Although subjects' fixation points were biased towards
+the localized auditory stimuli, this bias was found to be dependent on
+visual information. Our analysis suggests that a predominantly linear
+combination of unimodal saliencies accounts for the crossmodal integration
+process. 
+
+We quantified the saliency associated with a given image region by analysis
+of the measured overt eye movements of a large amount of subjects.
+Subjects' behavior was similar within the temporal interval where the
+effect of the lateralized sound was strongest. However we do not know
+whether this was the result of a search strategy shared between subjects or
+whether it originates purely from the bottom-up content present in the
+image. The results presented here do not depend on the precise determinants
+of the saliency associated to different image regions. Similarly, we
+evaluated the saliency of different parts of the visual field associated
+with the lateralized auditory stimulation. In many subjects this resulted
+in a shift of fixation toward the side of the sound, in accord with
+previous studies showing that sound source location is an important
+parameter. 
+
+Prior studies \citep{corneil1996a, corneil2002a, arndt2003a} have shown
+that congruent multimodal stimulation during tasks where subjects were
+required to move their gaze to targets as fast as possible results in
+faster saccadic reaction times together with an increase in the accuracy of
+saccades. Here we are extending these results to more operationally
+relevant conditions by using natural stimuli under free-viewing conditions
+where the subjects are not constrained in their behavior. Moreover, we are
+formally describing the crossmodal behavior in terms of unimodal behavior. 
+
+Concerning the temporal dynamics of the integration process, we found that
+the localized sound stimuli attracts subjects' attention more strongly
+during the first half of presentation, corresponding to an interval of
+approximately 2.5 seconds. Although it is observed that the lateralization
+of fixation density continues throughout the whole presentation time (Fig.
+\ref{fig4}), the effects are much weaker and do not reach the significance
+level. This effect can be understood as a consequence of inhibition of
+return, the subject losing interest in that side of the image, or
+alternatively due to an increasing efficiency of top-down signals over
+time, resulting in a superior efficiency of the sensory signals to attract
+attention during early periods of exposure only. 
+
+One interesting point is to know whether the present results \textemdash a linear
+integration of auditory and visual saliencies \textemdash generalize to situations
+with a combination of complex visual and complex auditory scenes. In the
+proposed computational scheme the origin of visual and auditory saliency
+maps is not constrained, but measured experimentally. The spatial structure
+of the auditory salience map is more complex, but presumably does not much
+the spatial acuity of the visual system. As a consequence, in the case
+several auditory stimuli would contribute no fundamental property in the
+integration process needs to be changed and we expect the same integration
+scheme to hold. 
+
+In our study, majority of the natural images we have presented to the
+subjects were devoid of human artifacts. It could be argued that our
+auditory stimuli were semantically more congruent with natural scenes where
+there was no human artifact visible and therefore the crossmodal
+integration would be stronger. Although some arbitrary decisions has to be
+taken, we separated our visual stimuli into two classes depending on
+whether human artefacts were present or not, and conducted the regression
+analysis with these two sets separately. We have not found stronger
+integration in the case of natural images without human artefacts compared
+to the case where human artefacts were visible. 
+
+How do these results fit with current neurophysiological knowledge? One of
+the most studied structures in the context of cross-modal integration is
+the superior colliculus, a deep brain structure (Meredith and Stein, 1986;
+Stein et al. 2004). It has long been known that superior colliculus
+contains neurons that receive inputs from different modalities. Neurons
+fire more strongly with simultaneous congruent spatial stimulation in
+different modalities, compared to unimodal firing rates. A recent report
+(Stanford et al., 2005) which attempted to quantify this integration
+process occurring in the superior colliculus, has pointed out that a great
+deal of the integration can be described by the linear summation of the
+unimodal channels, thereby providing supporting evidence that it is
+possible for linear integration to be implemented in the brain. At the
+cortical level, we are far from obtaining a final clear-cut consensus on
+how saliency is computed and integrated. In order for a cortical area to
+fulfill the requirements of a saliency map, the activity of neurons must
+predict the next location of attentional allocation. A number of such
+cortical areas have been proposed. Primary visual cortex, the largest of
+all topographically organized visual areas, may contain a saliency map (Li,
+2002). Simulations inspired by the local connectivity of V1 generate
+results compatible with human psychophysical data, thus linking the
+activity of neurons in early visual areas to the computation of salience.
+By recording single unit activity in monkey cortex during the exploration
+of natural visual stimuli,Mazer and Gallant (2003) found that the activity
+of neurons in V4 predicted whether a saccade would be made to their
+receptive fields. Based on these findings, they argue that V4, a higher
+level area located in the ventral visual stream, contains a topographic map
+of visual saliency. It is likely that these considerations may be
+generalized to other areas located in the ventral stream, but presumably
+also to cortical areas responsible for auditory processing. In addition,
+areas in the dorsal visual pathway and the frontal lobe \textemdash lateral
+intraparietal (LIP) \nomenclature{LIP}{Lateral Intraparietal Area}area and
+frontal eye field (FEF) \nomenclature{FEF}{Frontal Eye Field}respectively
+\textemdash have been associated with saliency. The activity of FEF neurons
+can be effectively modulated by the intrinsic saliency of the stimuli and
+further modulated by the current requirements of the task (Thompson and
+Bishot, 2004; Thompson et al., 2005). In the dorsal pathway, Bisley and
+Goldberg (2006) propose that LIP displays the crucial properties of a
+saliency map. Since saliency related activity in the brain seems to be
+widely distributed over many areas these areas could in theory be in the
+position to independently compete for the control of overt attention.
+However, our results support the existence of a joint functional saliency
+map, in which the information from different modalities converges before
+the non-linearities involved in the process of fixation point selection are
+applied. 
+
+It should be noted, however, that our results can not unravel the neuronal
+mechanisms underlying integration, as the exact cellular computations could
+in principle be carried out by operations other than linear summation of
+local variables. This depends on how saliency is represented \textemdash for example,
+if saliency were represented logarithmically, the linear summation would
+create a multiplicative effect. What we have shown is that at the
+behavioral level the information converges before motor decisions are taken
+and that this integration is mostly linear. We thus provide boundary
+constraints on the computations involved in the control of overt attention. 
+
+\cite{renninger2005a} use information theoretical tools to provide a new
+framework for the investigation of human overt attention. According to this
+hypothesis, the information gain is causally related to the selection of
+fixation points, i.e. we look where we gain the most information.
+Considered within this framework, it is tempting to speculate that a linear
+integration scheme of unimodal saliencies is compatible with the optimal
+information gain, in the sense that the linear integration of information
+gains originating from different modalities provides the optimal
+combination strategy, as the information gain is the sum of the information
+quantities that each modality provides.
+
+The integration of multiple sources of information is also a central issue
+in models of attention operating in unimodal conditions. As already
+mentioned, modality-specific information is separated into different
+feature channels, and the subsequent integration of these different sources
+is usually subject to arbitrary decisions on the part of the modeler due to
+the lack of biologically relevant data arising from natural conditions.
+Whether unimodal feature channels are also linearly integrated is a
+testable hypothesis and needs further experimental research. 
+
+One problem we encountered was the centralized fixation density present in
+the fixation probability distributions of unimodal auditory conditions.
+Although subjects were effectively oriented by the lateralized sound
+source, most of their fixations were concentrated at the center of the
+monitor. We avoided this problem in our analysis by taking the difference
+of the probability distributions obtained in unimodal auditory left and
+right conditions, and also by constraining analysis to the subset of
+subjects whose behavior was most influenced by auditory stimulation.
+However, we believe that this problem may be alleviated by using multiple
+sounds simulated to originate from different parts of the image. 
+
+It is common for complex systems, composed of non-linear units, to function
+in a linear way. Neurons are the basic functional constituents of nervous
+systems, and may express highly non-linear behaviors; for example, the
+Hodgkin-Huxley equations describing the relation between membrane potential
+and ionic currents are highly non- linear. Furthermore, the excitatory and
+inhibitory recurrent connections within and between cortical areas allow
+for complex non-linear interactions. However, irrespective of these
+underlying non-linear aspects, many neuronal functions are still well
+described by linear models. Neurons in early sensory cortices
+\citep{schnupp2001a} such as simple cells \citep{Carandini1997b}, for
+example, are well approximated when considered as linear filters operating
+on input signals. A recent study involving micro-stimulation in motor
+cortex showed that signals for movement direction and muscle activation
+also combine linearly. \citep{ethier2006a}. We have shown that the
+cross-modal integration during overt attention process is best described as
+a linear integration of sensory information, possibly originating from
+different brain areas. In doing so, we have provided an important
+constraint for any model of cross-modal interaction. This raises an
+important challenge for any biologically plausible model of human overt
+attention operating in environments with multiple source of information. 
+

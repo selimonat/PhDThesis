@@ -1,0 +1,1 @@
+export TEXINPUTS="$TEXINPUTS:~/Documents/PhDThesis/part_oi/figures:~/Documents/PhDThesis/part_cm/figures:~/Documents/PhDThesis/part_rf/figures:Documents/PhdThesis/"
